@@ -1,0 +1,210 @@
+html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "DinPro-Light";
+}
+
+.global-width {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*
+ * Header
+ */
+
+.article-header {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 60px;
+}
+
+.article-header h1 {
+  font-family: "DinPro-Medium";
+  color: #333;
+}
+
+.article-header h3 {
+  font-family: "DinPro-Light";
+  color: #666;
+}
+
+.article-header h1 a {
+  text-decoration: none;
+  color: #ed0;
+}
+
+/*
+ * Navigation bar
+ */
+
+.site-nav {
+  position: fixed;
+  top: 220px;
+  right: 0;
+  background: #ffc;
+  border-radius: 8px 0 0 8px;
+  width: 60px;
+  overflow: hidden;
+}
+
+.site-nav ul {
+  list-style: none;
+}
+
+.site-nav ul li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #bbb3;
+  text-align: center;
+  display: block;
+  font-family: 'DinPro-Light';
+}
+
+.site-nav ul .active-tab {
+  color: white;
+  background: #ed0;
+  font-family: 'DinPro-Medium';
+}
+
+.site-nav ul li a {
+  line-height: 200%;
+  text-decoration: none;
+  display: block;
+  color: #666;
+}
+
+.site-nav ul .active-tab a {
+  color: #333;
+}
+
+/*
+ * Body layout
+ */
+
+.content {
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.image-column {
+  width: 50%;
+  position: relative;
+  margin-right: 60px;
+}
+
+.article-column {
+  width: 50%;
+  margin-left: auto;
+}
+
+/*
+ * Article
+ */
+
+.article p {
+  font-family: 'DinPro-Light';
+  line-height: 1.8em;
+  margin-bottom: 20px;
+}
+
+.article img {
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.article h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+img.placeholder {
+  background: #eee;
+}
+
+img.placeholder-vertical {
+  width: 200px;
+  height: 600px;
+}
+
+img.placeholder-horizontal {
+  width: 600px;
+  height: 300px;
+}
+
+/*
+ * Image display
+ */
+
+.image-display {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+}
+
+.image-display img {
+  max-width: 600px;
+}
+
+#active-image {
+  position: fixed;
+  z-index: 999;
+}
+
+.iphonex {
+  border-radius: 37px;
+  overflow: hidden;
+}
+
+/*
+ * Projects
+ */
+
+.projects {
+  width: 100%;
+}
+
+.projects ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.projects ul li {
+  list-style: none;
+  display: inline-block;
+  width: 45%;
+  text-align: center;
+}
+
+.projects .project-thumb {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.projects .project-thumb img {
+  display: inline-block;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+.projects li h3 {
+  margin-top: 16px;
+  margin-bottom: 80px;
+}
+
+.projects li a {
+  text-decoration: none;
+  color: #666
+}
