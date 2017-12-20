@@ -148,7 +148,16 @@ img.placeholder-horizontal {
 }
 
 .image-display video {
-  max-width: 600px;
+  max-width: 400px;
+}
+
+.video-remove-border {
+  overflow: hidden;
+}
+
+.video-remove-border video {
+  position: relative;
+  top: 2px;
 }
 
 #active-image {
