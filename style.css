@@ -147,6 +147,10 @@ img.placeholder-horizontal {
   max-width: 600px;
 }
 
+.image-display video {
+  max-width: 600px;
+}
+
 #active-image {
   position: fixed;
   z-index: 999;
