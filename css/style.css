@@ -145,14 +145,18 @@ img.placeholder-horizontal {
   position: absolute;
   right: 0;
   opacity: 0;
+  width: 100%;
 }
 
 .image-display img {
   max-width: 600px;
+  display: block;
+  margin: auto;
 }
 
 .image-display video {
   max-width: 400px;
+  display: block;
 }
 
 .video-remove-border {
@@ -167,6 +171,7 @@ img.placeholder-horizontal {
 #active-image {
   position: fixed;
   z-index: 999;
+  width: 570px;
 }
 
 .iphonex {
