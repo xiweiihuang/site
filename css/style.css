@@ -157,6 +157,7 @@ img.placeholder-horizontal {
 .image-display video {
   max-width: 400px;
   display: block;
+  margin: auto;
 }
 
 .video-remove-border {
