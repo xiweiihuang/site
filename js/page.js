@@ -42,6 +42,7 @@ function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
   var firstElem = $('.image-display').eq(0);
   globalSnapTop = firstElem.offset().top;
+  console.log("top: ", globalSnapTop);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
 }
 
