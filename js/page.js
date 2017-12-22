@@ -23,8 +23,8 @@ $(window).on('load', function() {
     imageOffsets.push({ top: elem.position().top, height: elem.height() });
   });
 
-  makeActive(0);
-  updateActiveElem();
+//  makeActive(0);
+//  updateActiveElem();
   
   $(window).scroll(function() { 
     switchActive();
@@ -55,7 +55,7 @@ function switchActive() {
     }
   }
 
-  if (nextActiveIdx != -1 && nextActiveIdx != currentActiveIdx)
+  if (nextActiveIdx != currentActiveIdx)
     makeActive(nextActiveIdx);
 }
 
@@ -80,13 +80,16 @@ function makeActive(nextIdx) {
 }
 
 function updateActiveElem() {
+  if (currentActiveIdx == -1)
+    return;
+
   var elem = $('#active-image');
 
   if ($(window).scrollTop() < 0)
     elem.css('top', globalSnapTop - $(window).scrollTop());
 
   var opacity = 1.0;
-  if (currentActiveIdx < imageOffsets.length - 1) {
+  if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
     var nextTopPos = imageOffsets[currentActiveIdx + 1].top;
     var currBottomPos = $(window).scrollTop() + imageOffsets[currentActiveIdx].height;
     var distance = nextTopPos - currBottomPos;
