@@ -37,6 +37,7 @@ $(document).ready(function() {
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
     console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
 
+    // schedule to update height of elements that are not yet loaded at this time
     console.log(elem.children().eq(0));
     elem.children().eq(0).on('load', function() {
       console.log("onLoad");
