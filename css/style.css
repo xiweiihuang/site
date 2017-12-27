@@ -1,7 +1,13 @@
+/*
+ *************************************************************
+ * COMMON
+ *************************************************************
+ */
+
 html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  font-family: "DinPro-Light";
+  font-family: "Helvetica";
 }
 
 .global-width {
@@ -18,15 +24,16 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .article-header h1 {
-  font-family: "DinPro-Medium";
+  font-family: "Helvetica";
   font-size: 34px;
   font-weight: normal;
   color: #333;
 }
 
 .article-header h3 {
-  font-family: "DinPro-Light";
+  font-family: "Helvetica";
   font-size: 16px;
+  font-weight: normal;
   color: #666;
 }
 
@@ -54,7 +61,7 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
   padding: 4px 8px;
   background: white;
   text-align: center;
-  font-family: 'DinPro-Light';
+  font-family: "Helvetica";
 }
 
 .site-nav ul li.active-tab {
@@ -69,110 +76,19 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 /*
- * Body layout
+ *************************************************************
+ * HOME PAGE
+ *************************************************************
+ */
+
+/*
+ * Projects
  */
 
 .content {
-  display: flex;
   margin-top: 40px;
   margin-bottom: 100px;
 }
-
-.image-column {
-  width: 50%;
-  position: relative;
-  margin-right: 60px;
-}
-
-.article-column {
-  width: 50%;
-  margin-left: auto;
-}
-
-/*
- * Article
- */
-
-.article p {
-  font-family: 'DinPro-Light';
-  line-height: 1.8em;
-  margin-bottom: 20px;
-}
-
-.article img {
-  margin-bottom: 20px;
-  max-width: 100%;
-}
-
-.article h2:not(:first-child) {
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-
-.article ol {
-  line-height: 2em;
-}
-
-img.placeholder {
-  background: #eee;
-}
-
-img.placeholder-vertical {
-  width: 200px;
-  height: 600px;
-}
-
-img.placeholder-horizontal {
-  width: 600px;
-  height: 300px;
-}
-
-/*
- * Image display
- */
-
-.image-display {
-  position: absolute;
-  right: 0;
-  opacity: 0;
-  width: 100%;
-}
-
-.image-display img {
-  max-width: 600px;
-  display: block;
-  margin: auto;
-}
-
-.image-display video {
-  max-width: 400px;
-  display: block;
-  margin: auto;
-}
-
-.video-remove-border {
-  overflow: hidden;
-}
-
-.video-remove-border video {
-  position: relative;
-  top: 2px;
-}
-
-#active-image {
-  position: fixed;
-  z-index: 999;
-  width: 570px;
-}
-
-.iphonex {
-  border-radius: 37px;
-  overflow: hidden;
-}
-
-/*
- * Content
- */
 
 .projects-wrapper {
   width: 100%;
@@ -187,11 +103,11 @@ img.placeholder-horizontal {
 }
 
 .projects-wrapper #left-arrow {
-  left: -20px;
+  left: -30px;
 }
 
 .projects-wrapper #right-arrow {
-  right: -20px;
+  right: -30px;
 }
 
 .projects-wrapper .arrow a {
@@ -199,10 +115,6 @@ img.placeholder-horizontal {
   font-size: 48px;
   color: #ddd;
 }
-
-/*
- * Projects
- */
 
 .projects {
   width: 100%;
@@ -260,6 +172,7 @@ img.placeholder-horizontal {
 
 .projects .project-title h3 {
   font-size: 16px;
+  font-weight: normal;
   color: #353535;
 }
 
@@ -285,4 +198,114 @@ img.placeholder-horizontal {
   text-decoration: none;
   font-size: 16px;
   color: #353535;
+}
+
+/*
+ *************************************************************
+ * ARTICLE
+ *************************************************************
+ */
+
+/*
+ * Body layout
+ */
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-column {
+  width: 530px;
+  position: relative;
+}
+
+.article-column {
+  width: 530px;
+}
+
+/*
+ * Article
+ */
+
+.article p {
+  font-family: "Helvetica";
+  line-height: 1.7em;
+  margin-bottom: 14px;
+}
+
+.article img {
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.article h2 {
+  font-size: 24px;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+}
+
+.article h2:not(:first-child) {
+  margin-top: 40px;
+}
+
+.article ol {
+  line-height: 2em;
+}
+
+img.placeholder {
+  background: #eee;
+}
+
+img.placeholder-vertical {
+  width: 200px;
+  height: 600px;
+}
+
+img.placeholder-horizontal {
+  width: 600px;
+  height: 300px;
+}
+
+/*
+ * Image display
+ */
+
+.image-display {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  width: 100%;
+}
+
+.image-display img {
+  max-width: 530px;
+  display: block;
+  margin: auto;
+}
+
+.image-display video {
+  max-width: 400px;
+  display: block;
+  margin: auto;
+}
+
+.video-remove-border {
+  overflow: hidden;
+}
+
+.video-remove-border video {
+  position: relative;
+  top: 2px;
+}
+
+#active-image {
+  position: fixed;
+  z-index: 999;
+  width: 530px;
+}
+
+.iphonex {
+  border-radius: 37px;
+  overflow: hidden;
 }

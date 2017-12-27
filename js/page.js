@@ -44,6 +44,11 @@ function recordWindowSpacePositions() {
   globalSnapTop = firstElem.offset().top;
   console.log("top: ", globalSnapTop);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
+  console.log("w1: ", $(window).width());
+  console.log("w2: ", firstElem.offset().left);
+  console.log("w3: ", firstElem.outerWidth());
+  console.log("w4: ", (firstElem.offset().left + firstElem.outerWidth()));
+  console.log("w5: ", globalSnapRight);
 }
 
 function switchActive() {
