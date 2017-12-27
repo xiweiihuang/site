@@ -13,11 +13,21 @@ $(document).ready(function() {
     updateActiveElem();
   });
   $(window).resize(function() {
+    console.log("resize");
     var prevActive = currentActiveIdx;
     makeActive(-1);
     recordWindowSpacePositions();
     makeActive(prevActive);
   }); 
+
+  $('.image-column').children().each(function(idx) {
+    var elem = $(this);
+    var anchorName = "#anchor" + (idx + 1);
+    var anchor = $(anchorName);
+    if (anchor)
+      elem.css('top', anchor.offset().top - anchor.parent().offset().top);
+    elem.css('opacity', 1);
+  });
 
   $('.image-display').eq(0).ready(function() {
     console.log("first image ready");
@@ -30,12 +40,6 @@ $(window).on('load', function() {
   // store the positions and sizes of all image displays
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
-    var anchorName = "#anchor" + (idx + 1);
-    var anchor = $(anchorName);
-    if (anchor)
-      elem.css('top', anchor.offset().top - anchor.parent().offset().top);
-    elem.css('opacity', 1);
-
     imagesDoms.push(elem);
     console.log(elem.height());
     imageOffsets.push({ top: elem.position().top, height: elem.height() });
@@ -51,11 +55,6 @@ function recordWindowSpacePositions() {
   globalSnapTop = firstElem.offset().top;
   console.log("top: ", globalSnapTop);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
-  console.log("w1: ", $(window).width());
-  console.log("w2: ", firstElem.offset().left);
-  console.log("w3: ", firstElem.outerWidth());
-  console.log("w4: ", (firstElem.offset().left + firstElem.outerWidth()));
-  console.log("w5: ", globalSnapRight);
 }
 
 function switchActive() {
