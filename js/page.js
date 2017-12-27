@@ -27,6 +27,10 @@ $(document).ready(function() {
     if (anchor)
       elem.css('top', anchor.offset().top - anchor.parent().offset().top);
     elem.css('opacity', 1);
+
+    imagesDoms.push(elem);
+    imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
+    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
   });
 
   $('.image-display').eq(0).ready(function() {
@@ -38,12 +42,11 @@ $(document).ready(function() {
 
 $(window).on('load', function() {
   console.log("window ready");
-  // store offsets of all images for active detection
+  // update heights
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
-    imagesDoms.push(elem);
-    imageOffsets.push({ top: elem.position().top, height: elem.height() });
-    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
+    imageOffsets[idx].height = elem.height();
+    console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
   });
 });
 
@@ -65,7 +68,6 @@ function switchActive() {
   }
 
   if (nextActiveIdx != currentActiveIdx) {
-    console.log("make active: ", nextActiveIdx);
     makeActive(nextActiveIdx);
   }
 }
