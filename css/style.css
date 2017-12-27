@@ -14,12 +14,13 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
  */
 
 .article-header {
-  margin-top: 60px;
+  margin-top: 125px;
 }
 
 .article-header h1 {
   font-family: "DinPro-Medium";
   font-size: 34px;
+  font-weight: normal;
   color: #333;
 }
 
@@ -34,48 +35,37 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
   color: #4a90e2;
 }
 
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*
- * Navigation bar
+ * Navigation
  */
 
 .site-nav {
-  position: fixed;
-  top: 220px;
-  right: 0;
-  background: #ffc;
-  border-radius: 8px 0 0 8px;
-  width: 60px;
-  overflow: hidden;
-}
-
-.site-nav ul {
-  list-style: none;
+  margin-top: 4px;
 }
 
 .site-nav ul li {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #bbb3;
-  text-align: center;
   display: block;
+  list-style: none;
+  padding: 4px 8px;
+  background: white;
+  text-align: center;
   font-family: 'DinPro-Light';
 }
 
-.site-nav ul .active-tab {
-  color: white;
-  background: #ed0;
-  font-family: 'DinPro-Medium';
+.site-nav ul li.active-tab {
+  background: #f7f7f7;
 }
 
 .site-nav ul li a {
-  line-height: 200%;
+  line-height: 150%;
   text-decoration: none;
   display: block;
-  color: #666;
-}
-
-.site-nav ul .active-tab a {
-  color: #333;
+  color: #353535;
 }
 
 /*
@@ -84,7 +74,6 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
 
 .content {
   display: flex;
-  margin-top: 100px;
   margin-bottom: 100px;
 }
 
@@ -181,64 +170,81 @@ img.placeholder-horizontal {
 }
 
 /*
+ * Content
+ */
+
+.projects-wrapper {
+  width: 100%;
+  margin-top: 100px;
+  position: relative;
+  display: block;
+}
+
+.projects-wrapper .arrow {
+  position: absolute;
+  top: calc(50% - 18px);
+}
+
+.projects-wrapper #left-arrow {
+  left: -20px;
+}
+
+.projects-wrapper #right-arrow {
+  right: -20px;
+}
+
+.projects-wrapper .arrow a {
+  text-decoration: none;
+  font-size: 48px;
+  color: #ddd;
+}
+
+/*
  * Projects
  */
 
 .projects {
   width: 100%;
+  margin-top: 60px;
 }
 
 .projects ul {
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .projects ul li {
   list-style: none;
-  display: block;
-  margin-bottom: 80px;
+  display: inline-block;
+  width: 24.7%;
 }
 
-.projects .project-row {
-  margin: 0 auto;
-  width: 842px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 12px;
+.projects ul li a {
+  text-decoration: none;
 }
 
 .projects .project-block {
-  width: 421px;
-  height: 350px;
+  margin: 0 auto;
+  width: 260px;
+  height: 210px;
   display: flex;
-}
+  background: #f7f7f7;
 
-.projects .project-block p {
-  width: 60%;
-  margin: auto;
-}
-
-.project-block, .project-meta {
-  background-color: #f7f7f7;
-  border-radius: 4px;
-}
-
-.project-block:first-child {
-  background-color: white;
-}
-
-.project-meta {
-  height: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
 .projects .project-block img {
-  max-width: 80%;
-  max-height: 80%;
-  margin: auto;
-
   transition: filter .35s ease-in-out;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
 }
 
 .projects .project-block:hover img {
@@ -246,44 +252,36 @@ img.placeholder-horizontal {
   filter: grayscale(0%);
 }
 
-.projects .project-name {
-  width: 50%;
-  margin: auto;
-  margin-left: 54px;
+.projects .project-title {
+  margin-top: 10px;
+  text-align: center;
 }
 
-.projects .project-tag {
-  width: 50%;
-  text-align: right;
-  margin: auto;
-  margin-right: 54px;
+.projects .project-title h3 {
+  font-size: 16px;
+  color: #353535;
 }
 
-.projects .project-name h3 {
-  font-family: "Source Sans Pro";
-  font-weight: normal;
-  color: black;
+/*
+ * Tags
+ */
+
+.tags {
+  display: block;
 }
 
-.projects .project-tag h4 {
-  font-family: "Source Sans Pro";
-  font-weight: normal;
-  font-size: 14px;
-  color: #666;
+.tags ul {
+  list-style: none;
+  text-align: center;
 }
 
-.projects li a {
+.tags ul li {
+  display: inline-block;
+  width: 180px;
+}
+
+.tags ul li a {
   text-decoration: none;
-  color: #666
+  font-size: 16px;
+  color: #353535;
 }
-
-.projects .project-meta a {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.projects .project-meta a:hover .project-name h3 {
-  color: #4a90e2;
-}
-

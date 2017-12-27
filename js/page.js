@@ -101,4 +101,3 @@ function updateActiveElem() {
   }
   elem.css('opacity', opacity);
 }
-
