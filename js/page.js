@@ -13,13 +13,13 @@ $(document).ready(function() {
     updateActiveElem();
   });
   $(window).resize(function() {
-    console.log("resize");
     var prevActive = currentActiveIdx;
     makeActive(-1);
     recordWindowSpacePositions();
     makeActive(prevActive);
   }); 
 
+  // set initial position and show image
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
     var anchorName = "#anchor" + (idx + 1);
@@ -31,27 +31,25 @@ $(document).ready(function() {
 
   $('.image-display').eq(0).ready(function() {
     console.log("first image ready");
+    // store the positions and sizes of all image displays
     recordWindowSpacePositions();
   });
 });
 
 $(window).on('load', function() {
   console.log("window ready");
-  // store the positions and sizes of all image displays
+  // store offsets of all images for active detection
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
     imagesDoms.push(elem);
-    console.log(elem.height());
     imageOffsets.push({ top: elem.position().top, height: elem.height() });
+    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
   });
-
-//  makeActive(0);
-//  updateActiveElem();
 });
 
 function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
-  var firstElem = $('.image-display').eq(0);
+  var firstElem = $('.image-column').eq(0);
   globalSnapTop = firstElem.offset().top;
   console.log("top: ", globalSnapTop);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
@@ -66,8 +64,10 @@ function switchActive() {
     }
   }
 
-  if (nextActiveIdx != currentActiveIdx)
+  if (nextActiveIdx != currentActiveIdx) {
+    console.log("make active: ", nextActiveIdx);
     makeActive(nextActiveIdx);
+  }
 }
 
 function makeActive(nextIdx) {
