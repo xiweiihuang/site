@@ -37,7 +37,7 @@ $(document).ready(function() {
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
     console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
 
-    elem.load(function() {
+    elem.on('load', function() {
       imageOffsets[idx].height = elem.height();
       console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
