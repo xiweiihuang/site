@@ -28,6 +28,7 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
   font-size: 34px;
   font-weight: normal;
   color: #333;
+  margin-bottom: 10px;
 }
 
 .article-header h3 {
@@ -52,7 +53,7 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
  */
 
 .site-nav {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .site-nav ul li {
