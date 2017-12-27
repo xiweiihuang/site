@@ -4,11 +4,29 @@ var imageOffsets = [];
 var globalSnapTop;
 var globalSnapRight;
 
+jQuery.fn.reverse = [].reverse;
+
+$(document).ready(function() {
+  console.log("document ready");
+  $(window).scroll(function() { 
+    switchActive();
+    updateActiveElem();
+  });
+  $(window).resize(function() {
+    var prevActive = currentActiveIdx;
+    makeActive(-1);
+    recordWindowSpacePositions();
+    makeActive(prevActive);
+  }); 
+
+  $('.image-display').eq(0).ready(function() {
+    console.log("first image ready");
+    recordWindowSpacePositions();
+  });
+});
+
 $(window).on('load', function() {
-  jQuery.fn.reverse = [].reverse;
-
-  recordWindowSpacePositions();
-
+  console.log("window ready");
   // store the positions and sizes of all image displays
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
@@ -25,17 +43,6 @@ $(window).on('load', function() {
 
 //  makeActive(0);
 //  updateActiveElem();
-  
-  $(window).scroll(function() { 
-    switchActive();
-    updateActiveElem();
-  });
-  $(window).resize(function() {
-    var prevActive = currentActiveIdx;
-    makeActive(-1);
-    recordWindowSpacePositions();
-    makeActive(prevActive);
-  });
 });
 
 function recordWindowSpacePositions() {
