@@ -26,9 +26,9 @@ $(document).ready(function() {
 
   // set initial position and show image
   $('.image-column').children().each(function(idx) {
-    var elem = $(this);
+    var elem = jQuery(this);
     var anchorName = "#anchor" + (idx + 1);
-    var anchor = $(anchorName);
+    var anchor = jQuery(anchorName);
     if (anchor)
       elem.css('top', anchor.offset().top - anchor.parent().offset().top);
     elem.css('opacity', 1);
@@ -37,23 +37,13 @@ $(document).ready(function() {
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
     console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
 
-    elem.on('load', function() {
+    console.log(elem.children().eq(0));
+    elem.children().eq(0).on('load', function() {
+      console.log("onLoad");
       imageOffsets[idx].height = elem.height();
       console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
   });
-});
-
-$(window).on('load', function() {
-  console.log("window ready");
-  // update heights when all images loaded
-/*
-  $('.image-column').children().each(function(idx) {
-    var elem = $(this);
-    imageOffsets[idx].height = elem.height();
-    console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
-  });
-*/
 });
 
 function recordWindowSpacePositions() {
