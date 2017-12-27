@@ -38,9 +38,14 @@ $(document).ready(function() {
     console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
 
     // schedule to update height of elements that are not yet loaded at this time
-    console.log(elem.children().eq(0));
-    elem.children().eq(0).on('load', function() {
+    elem.children("img").eq(0).on('load', function() {
       console.log("onLoad");
+      imageOffsets[idx].height = elem.height();
+      console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
+    });
+
+    elem.children("video").eq(0).on('loadedmetadata', function() {
+      console.log("video onLoad");
       imageOffsets[idx].height = elem.height();
       console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
