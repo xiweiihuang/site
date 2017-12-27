@@ -35,19 +35,17 @@ $(document).ready(function() {
 
     imagesDoms.push(elem);
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
-    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
+    // console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
-      console.log("onLoad");
       imageOffsets[idx].height = elem.height();
-      console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
+      // console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
 
     elem.children("video").eq(0).on('loadedmetadata', function() {
-      console.log("video onLoad");
       imageOffsets[idx].height = elem.height();
-      console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
+      // console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
   });
 });
@@ -56,7 +54,7 @@ function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
   var firstElem = $('.image-column').eq(0);
   globalSnapTop = firstElem.offset().top;
-  console.log("top: ", globalSnapTop);
+  // console.log("top: ", globalSnapTop);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
 }
 
