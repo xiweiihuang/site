@@ -7,17 +7,22 @@ var globalSnapRight;
 jQuery.fn.reverse = [].reverse;
 
 $(document).ready(function() {
-  console.log("document ready");
   $(window).scroll(function() { 
     switchActive();
     updateActiveElem();
   });
+
   $(window).resize(function() {
     var prevActive = currentActiveIdx;
     makeActive(-1);
     recordWindowSpacePositions();
     makeActive(prevActive);
   }); 
+
+  // when first image read
+  $('.image-display').eq(0).ready(function() {
+    recordWindowSpacePositions();
+  });
 
   // set initial position and show image
   $('.image-column').children().each(function(idx) {
@@ -31,23 +36,24 @@ $(document).ready(function() {
     imagesDoms.push(elem);
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
     console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
-  });
 
-  $('.image-display').eq(0).ready(function() {
-    console.log("first image ready");
-    // store the positions and sizes of all image displays
-    recordWindowSpacePositions();
+    elem.ready(function() {
+      imageOffsets[idx].height = elem.height();
+      console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
+    });
   });
 });
 
 $(window).on('load', function() {
   console.log("window ready");
-  // update heights
+  // update heights when all images loaded
+/*
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
     imageOffsets[idx].height = elem.height();
     console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
   });
+*/
 });
 
 function recordWindowSpacePositions() {
