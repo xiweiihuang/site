@@ -26,16 +26,6 @@
       <div class="projects">
         <ul class="carousel">
           <li>
-            <a href=#>
-              <div class="project-block">
-                <img src="buks-aio-transparent.png" />
-              </div>
-              <div class="project-title">
-                <h3>Myx Reality Website</h3>
-              </div>
-            </a>
-          </li>
-          <li>
             <a href="/wiseat">
               <div class="project-block">
                 <img src="wiseat-thumb-anim.gif" />
@@ -78,6 +68,16 @@
           <li>
             <a href=#>
               <div class="project-block">
+                <img src="buks-aio-transparent.png" />
+              </div>
+              <div class="project-title">
+                <h3>Myx Reality Website</h3>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href=#>
+              <div class="project-block">
                 <img src="buks-mobile-wireframe.png" />
               </div>
               <div class="project-title">
@@ -95,11 +95,17 @@
 
   <div class="tags global-width">
     <ul>
-      <li><a href=#>UI/UX</a></li>
-      <li><a href=#>Creative Practice</a></li>
-      <li><a href=#>Physical</a></li>
+      <li class="tag-item active"><a href="javascript:void(0)" onclick="selectTag(0)">UI/UX</a></li>
+      <li class="tag-item"><a href="javascript:void(0)" onclick="selectTag(1)">Creative Practice</a></li>
+      <li class="tag-item"><a href="javascript:void(0)" onclick="selectTag(2)">Physical</a></li>
     </ul>
   </div>
+
+  <footer>
+    <div class="global-width">
+      <object data="logo.svg" width="84px" height="110px"></object>
+    </div>
+  </footer>
 
   <script type="text/javascript">
     function scrollToLeft() {
@@ -117,6 +123,13 @@
     document.addEventListener("DOMContentLoaded", function() {
       document.getElementById("left-arrow").style.display = "none";
     });
+    var activeTagId = 0;
+    function selectTag(tagId) {
+      var tags = document.getElementsByClassName("tag-item");
+      tags[activeTagId].classList.remove("active");
+      tags[tagId].classList.add("active");
+      activeTagId = tagId;
+    }
   </script>
 </body>
 </html>
