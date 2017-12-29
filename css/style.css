@@ -19,11 +19,11 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
  * Header
  */
 
-.article-header {
+.site-header {
   margin-top: 125px;
 }
 
-.article-header h1 {
+.site-header h1 {
   font-family: "Helvetica";
   font-size: 34px;
   font-weight: normal;
@@ -31,14 +31,14 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 10px;
 }
 
-.article-header h3 {
+.site-header h3 {
   font-family: "Helvetica";
   font-size: 16px;
   font-weight: normal;
   color: #666;
 }
 
-.article-header h1 a {
+.site-header h1 a {
   text-decoration: none;
   color: #4a90e2;
 }
@@ -46,6 +46,10 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
 .header-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+.site-title {
+  width: 75%;
 }
 
 /*
@@ -221,7 +225,6 @@ footer {
 }
 
 .tags ul li.active a {
-  font-weight: bold;
   color: #4a90e2;
 }
 
@@ -266,6 +269,18 @@ footer {
 .article img {
   margin-bottom: 20px;
   max-width: 100%;
+  display: block;
+}
+
+.article-thin img {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.article-thin {
+  width: 60%;
+  margin: 0 auto;
 }
 
 .article h2 {
@@ -279,8 +294,9 @@ footer {
   margin-top: 70px;
 }
 
-.article ol {
+.article ol, .article ul {
   line-height: 2em;
+  margin-bottom: 20px;
 }
 
 img.placeholder {

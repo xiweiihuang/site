@@ -30,17 +30,17 @@ $(document).ready(function() {
     var anchorName = "#anchor" + (idx + 1);
     var anchor = jQuery(anchorName);
     if (anchor)
-      elem.css('top', anchor.offset().top - anchor.parent().offset().top);
+      elem.css('top', anchor.offset().top - $(".article").eq(0).offset().top);
     elem.css('opacity', 1);
 
     imagesDoms.push(elem);
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
-    // console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
+    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
       imageOffsets[idx].height = elem.height();
-      // console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
+      console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
 
     elem.children("video").eq(0).on('loadedmetadata', function() {
