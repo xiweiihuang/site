@@ -101,6 +101,9 @@ footer {
   text-align: right;
 }
 
+footer div object {
+  margin-right: -18px;
+}
 
 /*
  *************************************************************
@@ -286,6 +289,10 @@ footer {
   margin-bottom: 20px;
 }
 
+.article .img-small {
+  max-width: 30%;
+}
+
 .article h2 {
   font-size: 24px;
   line-height: 1.2em;
@@ -300,20 +307,6 @@ footer {
 .article ol, .article ul {
   line-height: 2em;
   margin-bottom: 20px;
-}
-
-img.placeholder {
-  background: #eee;
-}
-
-img.placeholder-vertical {
-  width: 200px;
-  height: 600px;
-}
-
-img.placeholder-horizontal {
-  width: 600px;
-  height: 300px;
 }
 
 /*
