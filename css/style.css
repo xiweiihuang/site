@@ -15,6 +15,11 @@ html, body, div, ul, li, p, img, h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
+.global-width-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /*
  * Header
  */
@@ -266,21 +271,16 @@ footer {
   margin-bottom: 14px;
 }
 
-.article img {
+.article img, .article video {
   margin-bottom: 20px;
   max-width: 100%;
   display: block;
 }
 
-.article-thin img {
+.global-width-narrow .article img, .article video {
   width: 80%;
   margin: 0 auto;
   margin-bottom: 20px;
-}
-
-.article-thin {
-  width: 60%;
-  margin: 0 auto;
 }
 
 .article h2 {
