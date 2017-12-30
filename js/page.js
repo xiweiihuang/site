@@ -50,10 +50,12 @@ $(document).ready(function() {
   });
 });
 
+var globalSnapAdjustment = 150;
+
 function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
   var firstElem = $('.image-column').eq(0);
-  globalSnapTop = firstElem.offset().top;
+  globalSnapTop = firstElem.offset().top - globalSnapAdjustment;
   // console.log("top: ", globalSnapTop);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
 }
@@ -61,7 +63,7 @@ function recordWindowSpacePositions() {
 function switchActive() {
   var nextActiveIdx = -1;
   for (var i = imagesDoms.length - 1; i >= 0; i--) {
-    if ($(window).scrollTop() >= imageOffsets[i].top) {
+    if ($(window).scrollTop() - globalSnapAdjustment >= imageOffsets[i].top) {
       nextActiveIdx = i;
       break;
     }
