@@ -24,7 +24,7 @@
   <div class="content global-width">
     <div class="projects-wrapper">
       <div class="arrow" id="left-arrow"><a href="javascript:void(0);" onclick="scrollToLeft()">&lt;</a></div>
-      <div class="projects">
+      <div class="projects" id="projects-tag-0">
         <ul class="carousel">
           <li>
             <a href="/projects/wiseat">
@@ -90,6 +90,40 @@
           <li></li>
         </ul>
       </div>
+
+      <div class="projects" id="projects-tag-1">
+        <div class="project-block-wide">
+          <img src="/img/illusion-thumb.png" />
+        </div>
+      </div>
+
+      <div class="projects" id="projects-tag-2">
+        <ul class="carousel">
+          <li>
+            <a href="#">
+              <div class="project-block">
+                <img src="/img/wobble-rings-thumb.png" />
+              </div>
+              <div class="project-title">
+                <h3>The Wobble Rings</h3>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="project-block">
+                <img src="/img/pawnetic-thumb.png" />
+              </div>
+              <div class="project-title">
+                <h3>Pawnetic Playground</h3>
+              </div>
+            </a>
+          </li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+
       <div class="arrow" id="right-arrow"><a href="javascript:void(0);" onclick="scrollToRight()">&gt;</a></div>
     </div>
   </div>
@@ -123,13 +157,23 @@
     }
     document.addEventListener("DOMContentLoaded", function() {
       document.getElementById("left-arrow").style.display = "none";
+      document.getElementById("projects-tag-1").style.display = "none";
+      document.getElementById("projects-tag-2").style.display = "none";
     });
     var activeTagId = 0;
     function selectTag(tagId) {
       var tags = document.getElementsByClassName("tag-item");
       tags[activeTagId].classList.remove("active");
+      document.getElementById("projects-tag-" + activeTagId).style.display = "none";
       tags[tagId].classList.add("active");
+      document.getElementById("projects-tag-" + tagId).style.display = "block";
       activeTagId = tagId;
+      if (activeTagId == 0) {
+        scrollToLeft();
+      } else {
+        document.getElementById("left-arrow").style.display = "none";
+        document.getElementById("right-arrow").style.display = "none";
+      }
     }
   </script>
 </body>

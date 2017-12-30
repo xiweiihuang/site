@@ -195,6 +195,22 @@ footer div object {
   filter: grayscale(0%);
 }
 
+.projects .project-block-wide {
+  margin: 0 auto;
+  width: 1040px;
+  height: 252px;
+  background: #f7f7f7;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.projects .project-block-wide img {
+  object-fit: cover;
+  width: 100%;
+  margin: auto;
+}
+
 .projects .project-title {
   margin-top: 10px;
   text-align: center;
