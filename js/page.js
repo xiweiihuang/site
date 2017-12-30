@@ -6,6 +6,10 @@ var globalSnapRight;
 
 jQuery.fn.reverse = [].reverse;
 
+var globalSnapAdjustment = 150;
+var transitionHeight = 150;
+var activationMargin = -150;
+
 $(document).ready(function() {
   $(window).scroll(function() { 
     switchActive();
@@ -49,8 +53,6 @@ $(document).ready(function() {
     });
   });
 });
-
-var globalSnapAdjustment = 150;
 
 function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
@@ -108,8 +110,6 @@ function updateActiveElem() {
     var nextTopPos = imageOffsets[currentActiveIdx + 1].top;
     var currBottomPos = $(window).scrollTop() + imageOffsets[currentActiveIdx].height;
     var distance = nextTopPos - currBottomPos;
-    var transitionHeight = 150;
-    var activationMargin = 0;
     if (distance < transitionHeight + activationMargin)
       opacity = 1.0 - (0, transitionHeight - distance + activationMargin) / transitionHeight;
     opacity = Math.max(0, Math.min(1, opacity));
