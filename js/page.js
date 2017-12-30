@@ -10,6 +10,8 @@ var globalSnapAdjustment = 150;
 var transitionHeight = 150;
 var activationMargin = -150;
 
+var sectionOffset = 0;
+
 $(document).ready(function() {
   $(window).scroll(function() { 
     switchActive();
@@ -28,13 +30,15 @@ $(document).ready(function() {
     recordWindowSpacePositions();
   });
 
+  sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
+
   // set initial position and show image
   $('.image-column').children().each(function(idx) {
     var elem = jQuery(this);
     var anchorName = "#anchor" + (idx + 1);
     var anchor = jQuery(anchorName);
     if (anchor)
-      elem.css('top', anchor.offset().top - $(".article").eq(0).offset().top);
+      elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
     elem.css('opacity', 1);
 
     imagesDoms.push(elem);
@@ -56,16 +60,16 @@ $(document).ready(function() {
 
 function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
-  var firstElem = $('.image-column').eq(0);
-  globalSnapTop = firstElem.offset().top - globalSnapAdjustment;
+  globalSnapTop = $('.content').eq(0).offset().top - globalSnapAdjustment;
   // console.log("top: ", globalSnapTop);
+  var firstElem = $('.image-column').eq(0);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
 }
 
 function switchActive() {
   var nextActiveIdx = -1;
   for (var i = imagesDoms.length - 1; i >= 0; i--) {
-    if ($(window).scrollTop() - globalSnapAdjustment >= imageOffsets[i].top) {
+    if ($(window).scrollTop() - globalSnapAdjustment >= imageOffsets[i].top + sectionOffset) {
       nextActiveIdx = i;
       break;
     }
@@ -107,7 +111,7 @@ function updateActiveElem() {
 
   var opacity = 1.0;
   if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
-    var nextTopPos = imageOffsets[currentActiveIdx + 1].top;
+    var nextTopPos = imageOffsets[currentActiveIdx + 1].top + sectionOffset;
     var currBottomPos = $(window).scrollTop() + imageOffsets[currentActiveIdx].height;
     var distance = nextTopPos - currBottomPos;
     if (distance < transitionHeight + activationMargin)
