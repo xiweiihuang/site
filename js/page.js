@@ -45,11 +45,14 @@ $(document).ready(function() {
     var elem = $(this);
 
     // anchor images to their corresponding DOMs
-    var anchorName = "#anchor" + (idx + 1);
-    var anchor = $(anchorName);
+    var anchor = $('[anchor=' + (idx + 1) + ']');
+    if (!anchor.length)
+      anchor = $("#anchor" + (idx + 1));
     if (anchor) {
       elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
       elem.css('opacity', 1);
+    } else {
+      console.log("Couldn't find anchor for image " + (idx + 1));
     }
 
     imagesDoms.push(elem);
