@@ -7,15 +7,25 @@ var globalSnapRight;
 jQuery.fn.reverse = [].reverse;
 
 var globalSnapAdjustment = 150;
-var transitionHeight = 150;
-var activationMargin = -150;
 
+// distance from .image-column to .content
 var sectionOffset = 0;
 
+// states for smooth animation
+var lastScrollTop = 0;
+var ticking = false;
+
 $(document).ready(function() {
+  sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
+
   $(window).scroll(function() { 
-    switchActive();
-    updateActiveElem();
+    lastScrollTop = window.scrollY;
+    requestTick();
+
+    clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
+      ticking = false;
+    }, 250));
   });
 
   $(window).resize(function() {
@@ -30,30 +40,28 @@ $(document).ready(function() {
     recordWindowSpacePositions();
   });
 
-  sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
-
   // set initial position and show image
   $('.image-column').children().each(function(idx) {
-    var elem = jQuery(this);
+    var elem = $(this);
+
+    // anchor images to their corresponding DOMs
     var anchorName = "#anchor" + (idx + 1);
-    var anchor = jQuery(anchorName);
-    if (anchor)
+    var anchor = $(anchorName);
+    if (anchor) {
       elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
-    elem.css('opacity', 1);
+      elem.css('opacity', 1);
+    }
 
     imagesDoms.push(elem);
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
-    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + elem.height());
+    // console.log("elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
       imageOffsets[idx].height = elem.height();
-      console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
-
     elem.children("video").eq(0).on('loadedmetadata', function() {
       imageOffsets[idx].height = elem.height();
-      // console.log("update elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
   });
 });
@@ -61,7 +69,6 @@ $(document).ready(function() {
 function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
   globalSnapTop = $('.content').eq(0).offset().top - globalSnapAdjustment;
-  // console.log("top: ", globalSnapTop);
   var firstElem = $('.image-column').eq(0);
   globalSnapRight = $(window).width() - (firstElem.offset().left + firstElem.outerWidth());
 }
@@ -69,7 +76,7 @@ function recordWindowSpacePositions() {
 function switchActive() {
   var nextActiveIdx = -1;
   for (var i = imagesDoms.length - 1; i >= 0; i--) {
-    if ($(window).scrollTop() - globalSnapAdjustment >= imageOffsets[i].top + sectionOffset) {
+    if (lastScrollTop - globalSnapAdjustment >= imageOffsets[i].top + sectionOffset) {
       nextActiveIdx = i;
       break;
     }
@@ -101,34 +108,30 @@ function makeActive(nextIdx) {
 }
 
 function updateActiveElem() {
-  if (currentActiveIdx == -1)
-    return;
+  if (currentActiveIdx != -1) {
+    // handle negative scroll
+    if (lastScrollTop < 0)
+      $('#active-image').css('top', globalSnapTop - lastScrollTop);
 
-  var elem = $('#active-image');
-
-  if ($(window).scrollTop() < 0)
-    elem.css('top', globalSnapTop - $(window).scrollTop());
-
-  /*
-  var opacity = 1.0;
-  if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
-    var nextTopPos = imageOffsets[currentActiveIdx + 1].top + sectionOffset;
-    var currBottomPos = $(window).scrollTop() + imageOffsets[currentActiveIdx].height;
-    var distance = nextTopPos - currBottomPos;
-    if (distance < transitionHeight + activationMargin)
-      opacity = 1.0 - (0, transitionHeight - distance + activationMargin) / transitionHeight;
-    opacity = Math.max(0, Math.min(1, opacity));
+    if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
+      var nextTopPos = imageOffsets[currentActiveIdx + 1].top + sectionOffset;
+      var currBottomPos = lastScrollTop + imageOffsets[currentActiveIdx].height;
+      var distance = nextTopPos - currBottomPos;
+      $('#active-image').css('opacity', distance < 0 ? 0 : 1);
+    }
   }
-  elem.css('opacity', opacity);
-  */
+}
 
-  if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
-    var nextTopPos = imageOffsets[currentActiveIdx + 1].top + sectionOffset;
-    var currBottomPos = $(window).scrollTop() + imageOffsets[currentActiveIdx].height;
-    var distance = nextTopPos - currBottomPos;
-    if (distance < transitionHeight + activationMargin)
-      elem.css('opacity', 0);
-    else
-      elem.css('opacity', 1);
-  }
+function perFrameUpdate() {
+  requestAnimationFrame(perFrameUpdate);
+
+  switchActive();
+  updateActiveElem();
+}
+
+function requestTick() {
+  if (!ticking)
+    requestAnimationFrame(perFrameUpdate);
+
+  ticking = true;
 }
