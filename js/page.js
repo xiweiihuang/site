@@ -109,6 +109,7 @@ function updateActiveElem() {
   if ($(window).scrollTop() < 0)
     elem.css('top', globalSnapTop - $(window).scrollTop());
 
+  /*
   var opacity = 1.0;
   if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
     var nextTopPos = imageOffsets[currentActiveIdx + 1].top + sectionOffset;
@@ -119,4 +120,15 @@ function updateActiveElem() {
     opacity = Math.max(0, Math.min(1, opacity));
   }
   elem.css('opacity', opacity);
+  */
+
+  if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
+    var nextTopPos = imageOffsets[currentActiveIdx + 1].top + sectionOffset;
+    var currBottomPos = $(window).scrollTop() + imageOffsets[currentActiveIdx].height;
+    var distance = nextTopPos - currBottomPos;
+    if (distance < transitionHeight + activationMargin)
+      elem.css('opacity', 0);
+    else
+      elem.css('opacity', 1);
+  }
 }
