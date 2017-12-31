@@ -6,13 +6,14 @@ var globalSnapRight;
 
 jQuery.fn.reverse = [].reverse;
 
+// adjust the snap top position which default to the top of .image-column
 var globalSnapAdjustment = 150;
 
 // distance from .image-column to .content
-var sectionOffset = 0;
+var sectionOffset;
 
 // states for smooth animation
-var lastScrollTop = 0;
+var lastScrollTop;
 var ticking = false;
 
 $(document).ready(function() {
@@ -118,9 +119,9 @@ function updateActiveElem() {
 
     if (currentActiveIdx != -1 && currentActiveIdx < imageOffsets.length - 1) {
       var nextTopPos = imageOffsets[currentActiveIdx + 1].top + sectionOffset;
-      var currBottomPos = lastScrollTop + imageOffsets[currentActiveIdx].height;
+      var currBottomPos = lastScrollTop + imageOffsets[currentActiveIdx].height - globalSnapAdjustment;
       var distance = nextTopPos - currBottomPos;
-      $('#active-image').css('opacity', distance < 0 ? 0 : 1);
+      $('#active-image').css('opacity', distance < 20 ? 0 : 1);
     }
   }
 }
