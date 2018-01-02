@@ -23,13 +23,13 @@
 
   <div class="content global-width">
     <div class="projects-wrapper">
-      <div class="arrow" id="left-arrow"><a href="javascript:void(0);" onclick="scrollToLeft()">&lt;</a></div>
       <div class="projects" id="projects-tag-0">
+        <div class="arrow left-arrow" id="left-arrow-0" style="display: none;"><a href="javascript:void(0);" onclick="scrollToLeft(0)">&lt;</a></div>
         <ul class="carousel">
           <li>
             <a href="/projects/wiseat">
               <div class="project-block">
-                <img src="/img/wiseat-thumb-anim.gif" />
+                <img src="/img/wiseat-thumb-anim.gif" class="grayed" />
               </div>
               <div class="project-title">
                 <h3>WisEat</h3>
@@ -39,7 +39,7 @@
           <li>
             <a href="/projects/buks">
               <div class="project-block">
-                <img src="/img/buks-mobile-thumb.png" />
+                <img src="/img/buks-mobile-thumb.png" class="grayed" />
               </div>
               <div class="project-title">
                 <h3>Buks</h3>
@@ -49,7 +49,7 @@
           <li>
             <a href="/projects/player">
               <div class="project-block">
-                <img src="/img/player-thumb-anim.gif" />
+                <img src="/img/player-thumb-anim.gif" class="grayed" />
               </div>
               <div class="project-title">
                 <h3>Music Player</h3>
@@ -59,7 +59,7 @@
           <li>
             <a href="/projects/case-study-note-apps">
               <div class="project-block">
-                <img src="/img/note-thumb.png" />
+                <img src="/img/note-thumb.png" class="grayed" />
               </div>
               <div class="project-title">
                 <h3>Case Study: Note Apps</h3>
@@ -69,7 +69,7 @@
           <li>
             <a href=#>
               <div class="project-block">
-                <img src="/img/buks-aio-transparent.png" />
+                <img src="/img/buks-aio-transparent.png" class="grayed" />
               </div>
               <div class="project-title">
                 <h3>Myx Reality Website</h3>
@@ -79,7 +79,7 @@
           <li>
             <a href=#>
               <div class="project-block">
-                <img src="/img/buks-mobile-wireframe.png" />
+                <img src="/img/buks-mobile-wireframe.png" class="grayed" />
               </div>
               <div class="project-title">
                 <h3>CompBack</h3>
@@ -89,12 +89,56 @@
           <li></li>
           <li></li>
         </ul>
+        <div class="arrow right-arrow" id="right-arrow-0"><a href="javascript:void(0);" onclick="scrollToRight(0)">&gt;</a></div>
       </div>
 
       <div class="projects" id="projects-tag-1" style="display: none;">
-        <div class="project-block-wide">
-          <img src="/img/illusion-thumb.png" />
-        </div>
+        <div class="arrow left-arrow" id="left-arrow-1" style="display: none;"><a href="javascript:void(0);" onclick="scrollToLeft(1)">&lt;</a></div>
+        <ul class="carousel">
+          <li class="wide">
+            <a href="/projects/wiseat">
+              <div class="project-block">
+                <img src="/img/illusion-thumb.png" />
+              </div>
+              <div class="project-title">
+                <h3>Illusion</h3>
+              </div>
+            </a>
+          </li>
+          <li class="wide">
+            <a href="/projects/wiseat">
+              <div class="project-block">
+                <img src="/img/untitled-thumb.png" />
+              </div>
+              <div class="project-title">
+                <h3>Untitled</h3>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="project-block">
+                <img src="/img/wobble-rings-thumb.png" class="grayed" />
+              </div>
+              <div class="project-title">
+                <h3>The Wobble Rings</h3>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="project-block">
+                <img src="/img/pawnetic-thumb.png" class="grayed" />
+              </div>
+              <div class="project-title">
+                <h3>Pawnetic Playground</h3>
+              </div>
+            </a>
+          </li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="arrow right-arrow" id="right-arrow-1"><a href="javascript:void(0);" onclick="scrollToRight(1)">&gt;</a></div>
       </div>
 
       <div class="projects" id="projects-tag-2" style="display: none;">
@@ -123,8 +167,6 @@
           <li></li>
         </ul>
       </div>
-
-      <div class="arrow" id="right-arrow"><a href="javascript:void(0);" onclick="scrollToRight()">&gt;</a></div>
     </div>
   </div>
 
@@ -132,7 +174,7 @@
     <ul>
       <li class="tag-item active"><a href="javascript:void(0)" onclick="selectTag(0)">UI/UX</a></li>
       <li class="tag-item"><a href="javascript:void(0)" onclick="selectTag(1)">Creative Practice</a></li>
-      <li class="tag-item"><a href="javascript:void(0)" onclick="selectTag(2)">Physical</a></li>
+      <!-- <li class="tag-item"><a href="javascript:void(0)" onclick="selectTag(2)">Physical</a></li> -->
     </ul>
   </div>
 
@@ -143,36 +185,38 @@
   </footer>
 
   <script type="text/javascript">
-    function scrollToLeft() {
-      var list = document.getElementsByClassName("carousel")[0];
-      list.scrollLeft -= list.clientWidth;
-      document.getElementById("left-arrow").style.display = "none";
-      document.getElementById("right-arrow").style.display = "block";
+    var currentPage = [0, 0];
+    var numPages = [2, 3];
+    function scrollToLeft(tagId) {
+      if (currentPage[tagId] > 0) {
+        var list = document.getElementsByClassName("carousel")[tagId];
+        list.scrollLeft -= list.clientWidth + (tagId == 1 ? 8 : 0);
+        currentPage[tagId] -= 1;
+        document.getElementById("right-arrow-" + tagId).style.display = "block";
+      }
+      if (currentPage[tagId] == 0)
+        document.getElementById("left-arrow-" + tagId).style.display = "none";
     }
-    function scrollToRight() {
-      var list = document.getElementsByClassName("carousel")[0];
-      list.scrollLeft += list.clientWidth;
-      document.getElementById("left-arrow").style.display = "block";
-      document.getElementById("right-arrow").style.display = "none";
+    function scrollToRight(tagId) {
+      if (currentPage[tagId] < numPages[tagId] - 1) {
+        var list = document.getElementsByClassName("carousel")[tagId];
+        list.scrollLeft += list.clientWidth + (tagId == 1 ? 8 : 0);
+        currentPage[tagId] += 1;
+        document.getElementById("left-arrow-" + tagId).style.display = "block";
+      }
+      if (currentPage[tagId] == numPages[tagId] - 1)
+        document.getElementById("right-arrow-" + tagId).style.display = "none";
     }
-    document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById("left-arrow").style.display = "none";
-      document.getElementById("projects-tag-1").style.display = "none";
-      document.getElementById("projects-tag-2").style.display = "none";
-    });
     var activeTagId = 0;
     function selectTag(tagId) {
-      var tags = document.getElementsByClassName("tag-item");
-      tags[activeTagId].classList.remove("active");
-      document.getElementById("projects-tag-" + activeTagId).style.display = "none";
-      tags[tagId].classList.add("active");
-      document.getElementById("projects-tag-" + tagId).style.display = "block";
-      activeTagId = tagId;
-      if (activeTagId == 0) {
-        scrollToLeft();
-      } else {
-        document.getElementById("left-arrow").style.display = "none";
-        document.getElementById("right-arrow").style.display = "none";
+      if (tagId != activeTagId) {
+        var tags = document.getElementsByClassName("tag-item");
+        tags[tagId].classList.add("active");
+        tags[activeTagId].classList.remove("active");
+        document.getElementById("projects-tag-" + tagId).style.display = "block";
+        document.getElementById("projects-tag-" + activeTagId).style.display = "none";
+
+        activeTagId = tagId;
       }
     }
   </script>
