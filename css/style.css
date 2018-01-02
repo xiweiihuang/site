@@ -29,7 +29,6 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header h1 {
-  font-family: "Source Sans Pro";
   font-size: 34px;
   font-weight: normal;
   color: #333;
@@ -37,7 +36,6 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header h3 {
-  font-family: "Source Sans Pro";
   font-size: 16px;
   font-weight: normal;
   color: #666;
@@ -60,6 +58,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 .site-title-narrow {
   margin-left: 16.8%;
 }
+
 /*
  * Navigation
  */
@@ -79,7 +78,6 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
   padding: 4px 8px;
   background: white;
   text-align: center;
-  font-family: "Source Sans Pro";
 }
 
 .site-nav ul li.active-tab {
@@ -292,7 +290,6 @@ footer div object {
  */
 
 .article p {
-  font-family: "Source Sans Pro";
   line-height: 1.7em;
   margin-bottom: 14px;
 }
@@ -366,9 +363,4 @@ footer div object {
   position: fixed;
   z-index: -999;
   width: 530px;
-}
-
-.iphonex {
-  border-radius: 37px;
-  overflow: hidden;
 }
