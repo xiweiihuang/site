@@ -22,12 +22,15 @@ $(document).ready(function() {
 
   $(window).scroll(function() { 
     lastScrollTop = window.scrollY;
-    requestTick();
+    switchActive();
+    updateActiveElem();
 
-    clearTimeout($.data(this, 'scrollTimer'));
-    $.data(this, 'scrollTimer', setTimeout(function() {
-      ticking = false;
-    }, 250));
+    // requestTick();
+
+    // clearTimeout($.data(this, 'scrollTimer'));
+    // $.data(this, 'scrollTimer', setTimeout(function() {
+    //   ticking = false;
+    // }, 250));
   });
 
   $(window).resize(function() {
