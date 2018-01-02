@@ -162,13 +162,12 @@ footer div object {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
+  font-size: 0;
+  list-style: none;
 }
 
 .projects ul li {
-  list-style: none;
   display: inline-block;
-  margin: 0;
-  padding: 0;
   width: 25%;
 }
 

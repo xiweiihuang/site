@@ -190,7 +190,7 @@
     function scrollToLeft(tagId) {
       if (currentPage[tagId] > 0) {
         var list = document.getElementsByClassName("carousel")[tagId];
-        list.scrollLeft -= list.clientWidth + (tagId == 1 ? 8 : 0);
+        list.scrollLeft -= list.clientWidth;
         currentPage[tagId] -= 1;
         document.getElementById("right-arrow-" + tagId).style.display = "block";
       }
@@ -200,7 +200,7 @@
     function scrollToRight(tagId) {
       if (currentPage[tagId] < numPages[tagId] - 1) {
         var list = document.getElementsByClassName("carousel")[tagId];
-        list.scrollLeft += list.clientWidth + (tagId == 1 ? 8 : 0);
+        list.scrollLeft += list.clientWidth;
         currentPage[tagId] += 1;
         document.getElementById("left-arrow-" + tagId).style.display = "block";
       }
