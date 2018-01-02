@@ -18,6 +18,7 @@ var ticking = false;
 
 $(document).ready(function() {
   sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
+  updateImageMaxHeight();
 
   $(window).scroll(function() { 
     lastScrollTop = window.scrollY;
@@ -34,6 +35,9 @@ $(document).ready(function() {
     makeActive(-1);
     recordWindowSpacePositions();
     makeActive(prevActive);
+
+    updateImageMaxHeight();
+    updateImageHeights();
   }); 
 
   // when first image read
@@ -46,15 +50,7 @@ $(document).ready(function() {
     var elem = $(this);
 
     // anchor images to their corresponding DOMs
-    var anchor = $('[anchor=' + (idx + 1) + ']');
-    if (!anchor.length)
-      anchor = $("#anchor" + (idx + 1));
-    if (anchor) {
-      elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
-      elem.css('opacity', 1);
-    } else {
-      console.log("Couldn't find anchor for image " + (idx + 1));
-    }
+    anchorImage(elem, idx, true);
 
     imagesDoms.push(elem);
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
@@ -63,12 +59,47 @@ $(document).ready(function() {
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
       imageOffsets[idx].height = elem.height();
+      anchorImage(elem, idx, true);
     });
     elem.children("video").eq(0).on('loadedmetadata', function() {
       imageOffsets[idx].height = elem.height();
+      anchorImage(elem, idx, true);
     });
   });
 });
+
+function anchorImage(elem, idx, verticalCenter) {
+  var anchor = $('[anchor=' + (idx + 1) + ']');
+  if (!anchor.length)
+    anchor = $("#anchor" + (idx + 1));
+  if (!anchor.length) {
+    console.log("Couldn't find anchor for image " + (idx + 1));
+    return;
+  }
+
+  if (verticalCenter) {
+    var anchorTextHeight = anchor.height();
+    var imageHeight = elem.height();
+    var verticalAlignmentAdjustment = (anchorTextHeight - imageHeight) / 2;
+    elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment);
+  } else {
+    elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
+  }
+  elem.css('opacity', 1);
+}
+
+function updateImageMaxHeight() {
+  var maxImageHeight = Math.max(window.innerHeight - 44, 640) - 100;
+  $('.image-display img').css('max-height', maxImageHeight);
+  $('.image-display video').css('max-height', maxImageHeight);
+}
+
+function updateImageHeights() {
+  $('.image-column').children().each(function(idx) {
+    var elem = $(this);
+    imageOffsets[idx].height = elem.height();
+  });
+}
 
 function recordWindowSpacePositions() {
   // record the screen-space position for fixed positioning of active element
