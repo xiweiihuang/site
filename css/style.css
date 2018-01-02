@@ -364,7 +364,7 @@ footer div object {
 
 #active-image {
   position: fixed;
-  z-index: 999;
+  z-index: -999;
   width: 530px;
 }
 
