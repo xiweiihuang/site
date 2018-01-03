@@ -61,13 +61,13 @@ $(document).ready(function() {
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
-      imageOffsets[idx].top = elem.top();
+      imageOffsets[idx].top = elem.position().top;
       imageOffsets[idx].height = elem.height();
       anchorImage(elem, idx, true);
       console.log("adjust elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
     elem.children("video").eq(0).on('loadedmetadata', function() {
-      imageOffsets[idx].top = elem.top();
+      imageOffsets[idx].top = elem.position().top;
       imageOffsets[idx].height = elem.height();
       anchorImage(elem, idx, true);
     });
