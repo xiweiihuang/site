@@ -3,13 +3,12 @@
   <title>Player</title>
   <link rel='stylesheet' href="/css/style.css" type='text/css' />
   <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-  <script src="/js/page.js" type="text/javascript"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="header-wrapper global-width">
-      <div class="site-title">
-        <h1><a href='/'>Player</a></h1>
+      <div class="site-title site-title-narrow">
+        <h1><a href='/'>Player</a><span class="platform"><a href="javascript:void(0)" onclick="selectPlatform(0)" class="platform-select active">Mobile</a> | <a href="javascript:void(0)" onclick="selectPlatform(1)" class="platform-select">Desktop</a></span></h1>
         <h3>A slate-style, clean looking music player app focuses on JUST PLAYING the best music.</h3>
       </div>
 
@@ -22,66 +21,65 @@
     </div>
   </header>
 
-  <div class="content global-width">
-    <div class="image-column">
-      <div class="image-display">
-        <img src="player-desktop-aio.png" />
-      </div>
-      <div class="image-display video-remove-border">
+  <div class="content global-width-narrow">
+    <div class="article">
+      <h2>Background</h2>
+      <ul>
+        <li><h3>Design Problem - <small>Every designer seems have designed a player app at some point, and i'am no exception.</small></h3></li>
+        <li><h3>Goal - <small>This design focuses on a clean, slate style in design and interaction.</small></h3></li>
+        <li><h3>Insights - <small>Albums and artist info presented in card forms show at the bottom of the screen. In my opinion, all the necessary interactions one have to preform when using music player is to be able to change songs, albums and perhaps playlist, look after artists, album and song info. I think it's ideal all this essential controls can be done using one hands within a seamless and constant interaction fashion.</small></h3></li>
+        <li>
+          <h3>Features and solutions</h3>
+          <ul>
+            <li>Main playing</li>
+            <li>A saved song list</li>
+            <li>Lyric</li>
+            <li>All songs</li>
+            <li>Album collection</li>
+            <li>Artist - all albums</li>
+            <li>Artist - one albums - one song</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div id="platform0">
+        <h2>Wireframes</h2>
+
+        <h2>High-fidelity Prototype</h2>
+
         <video autoplay loop width="100%">
           <source src="player.mov">
         </video>
       </div>
-    </div>
-    <div class="article-column article">
-      <h2>Background/ Design Problem</h2>
-      <p anchor=1>
-        Every designer seems have designed a player app at some point, and i'am no exception.
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
 
-      <h2>User Research</h2>
-      <p anchor=2>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
+      <div id="platform1" style="display: none;">
+        <h2>Wireframes</h2>
+        <img src="player-desktop-wireframe.png" />
 
-      <h2>Goal</h2>
-      <p anchor=3>
-        This design focuses on a clean, slate style in design and interaction.
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
+        <h2>High-fidelity Prototype</h2>
+        <img src="player-desktop-aio.png" />
 
-      <h2>Insights</h2>
-      <p anchor=4>
-        Albums and artist info presented in card forms show at the bottom of the screen. In my opinion, all the necessary interactions one have to preform when using music player is to be able to change songs, albums and perhaps playlist, look after artists, album and song info. I think it's ideal all this essential controls can be done using one hands within a seamless and constant interaction fashion.
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
+        <br />
+        <br />
 
-      <h2>Brainstorms - features and solutions</h2>
-      <h3>Desktop</h3>
-      <ul anchor=5>
-        <li>Main playing</li>
-        <li>A saved song list</li>
-        <li>Lyric</li>
-        <li>All songs</li>
-        <li>Album collection</li>
-        <li>Artist - all albums</li>
-        <li>Artist - one albums - one song</li>
-      </ul>
-
-      <h3>Mobile</h3>
-      <ul anchor=6>
-        <li>Main playing</li>
-        <li>A saved song list</li>
-        <li>Lyric</li>
-        <li>All songs</li>
-        <li>Album collection</li>
-        <li>Artist - all albums</li>
-        <li>Artist - one albums - one song</li>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </ul>
+        <img src="desktop/MAIN.png" />
+        <img src="desktop/LYRIC.png" />
+        <img src="desktop/Artists-All select.png" />
+        <img src="desktop/SONGS.png" />
+        <img src="desktop/ALBUM-Collection.png" />
+      </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    var activePlatformId = 0;
+    function selectPlatform(idx) {
+      document.getElementsByClassName("platform-select")[activePlatformId].classList.remove("active");
+      document.getElementsByClassName("platform-select")[idx].classList.add("active");
+      document.getElementById("platform" + activePlatformId).style.display = "none";
+      document.getElementById("platform" + idx).style.display = "block";
+      activePlatformId = idx;
+    }
+  </script>
 </body>
 </html>
-

@@ -8,8 +8,8 @@
 <body>
   <header class="site-header">
     <div class="header-wrapper global-width">
-      <div class="site-title">
-        <h1><a href='/'>Buks</a></h1>
+      <div class="site-title site-title-narrow">
+        <h1><a href='/'>Buks</a><span class="platform"><a href="javascript:void(0)" onclick="selectPlatform(0)" class="platform-select active">Mobile</a> | <a href="javascript:void(0)" onclick="selectPlatform(1)" class="platform-select">Desktop</a></span></h1>
         <h3>Find your next must-read in recommendation tailored just for you.</h3>
       </div>
 
@@ -22,59 +22,53 @@
     </div>
   </header>
 
-  <div class="content global-width">
-    <div class="image-column">
-      <div class="image-display">
-        <img src="buks-desktop-wireframe.png" />
-      </div>
-      <div class="image-display">
-        <img src="buks-desktop-aio-dark.png" />
-      </div>
-      <div class="image-display">
-        <img src="buks-mobile-wireframe-2.png" />
-      </div>
-      <div class="image-display">
+  <div class="content global-width-narrow">
+    <div class="article">
+      <h2>Background</h2>
+      <ul>
+        <li><h3>Design Problem - <small>I've always want to be able to record the books that i read and continuously find more interesting books to read through a trusting system.</small></h3></li>
+        <li><h3>Goal - <small>So i wanted to mostly focus on two things in this design: to record easily and to recommend more books based on the other people's reading list.</small></h3></li>
+        <li><h3>Insights - <small>I find the most efficient recommend system for me is to give reading lists that contains the books that i've read and rated high. But not "similar" books that share the same topic or subject.</small></h3></li>
+        <li>
+          <h3>Features and solutions</h3>
+          <ul>
+            <li>recommend book - based on booklists.</li>
+            <li>better, faster, simpler mark system.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div id="platform0">
+        <h2>Wireframes</h2>
+        <img src="buks-mobile-wireframe.png" />
+
+        <h2>High-fidelity Prototype</h2>
         <img src="buks-mobile-aio.png" />
-      </div>
-      <div class="image-display video-remove-border">
+
         <video autoplay loop width="100%">
           <source src="buks.mov">
         </video>
       </div>
-    </div>
-    <div class="article-column article">
-      <h2>Background/ Design Problem</h2>
-      <p anchor=1>
-        I've always want to be able to record the books that i read and continuously find more interesting books to read through a trusting system. 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
 
-      <h2>User Research</h2>
-      <p anchor=2>
-        But as an average, I find it's really hard to find an app that always gets me the book i like.
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
+      <div id="platform1" style="display: none;">
+        <h2>Wireframes</h2>
+        <img src="buks-desktop-wireframe.png" />
 
-      <h2>Goal</h2>
-      <p anchor=3>
-        So to design this app, i wanted to mostly focus on two things: to record easily and to recommend more books based on the other people's reading list.
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
-
-      <h2>Insights</h2>
-      <p anchor=4>
-        I find the most efficient recommend system for me is to give reading lists that contains the books that i've read and rated high. But not "similar" books that share the same topic or subject.
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </p>
-
-      <h2>Brainstorms - features and solutions</h2>
-      <ul anchor=5>
-        <li>recommend book - based on booklists.</li>
-        <li>better, faster, simpler mark system.</li>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </ul>
+        <h2>High-fidelity Prototype</h2>
+        <img src="buks-desktop-aio-dark.png" />
+      </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    var activePlatformId = 0;
+    function selectPlatform(idx) {
+      document.getElementsByClassName("platform-select")[activePlatformId].classList.remove("active");
+      document.getElementsByClassName("platform-select")[idx].classList.add("active");
+      document.getElementById("platform" + activePlatformId).style.display = "none";
+      document.getElementById("platform" + idx).style.display = "block";
+      activePlatformId = idx;
+    }
+  </script>
 </body>
 </html>
-

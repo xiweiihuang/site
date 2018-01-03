@@ -43,7 +43,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 
 .site-header h1 a {
   text-decoration: none;
-  color: #007aff;
+  color: #276dc1;
 }
 
 .header-wrapper {
@@ -92,7 +92,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-nav ul li.active-tab a {
-  color: #007aff;
+  color: #276dc1;
 }
 
 footer {
@@ -254,11 +254,11 @@ footer div object {
 }
 
 .tags ul li.active a {
-  color: #007aff;
+  color: #276dc1;
 }
 
 .tags ul li a:hover {
-  color: #007aff;
+  color: #276dc1;
 }
 
 /*
@@ -266,6 +266,20 @@ footer div object {
  * ARTICLE
  *************************************************************
  */
+
+.site-title h1 .platform {
+  color: grey;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.site-title h1 .platform a {
+  color: grey;
+}
+
+.site-title h1 .platform a.active {
+ color: #276dc1;
+}
 
 /*
  * Body layout
@@ -290,6 +304,7 @@ footer div object {
  */
 
 .article p {
+  font-size: 18px;
   line-height: 1.7em;
   margin-bottom: 14px;
 }
@@ -315,14 +330,27 @@ footer div object {
   line-height: 1.2em;
   margin-top: 20px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .article h2:not(:first-child) {
   margin-top: 70px;
 }
 
+.article h3 {
+  font-family: "Source Sans Pro Semibold";
+  font-size: 18px;
+}
+
+.article h3 small {
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+  font-size: 18px;
+}
+
 .article ol, .article ul {
   line-height: 2em;
+  font-size: 18px;
 }
 
 /*

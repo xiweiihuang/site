@@ -69,15 +69,33 @@
           <li>
             <a href=#>
               <div class="project-block">
-                <img src="/img/buks-aio-transparent.png" class="grayed" />
+                <img src="/img/myx-thumb.png" class="grayed" />
               </div>
               <div class="project-title">
                 <h3>Myx Reality Website</h3>
               </div>
             </a>
           </li>
-          <li></li>
-          <li></li>
+          <li>
+            <a href=#>
+              <div class="project-block">
+                <img src="/img/ned-thumb.png" class="grayed" />
+              </div>
+              <div class="project-title">
+                <h3>NED Website Redesign</h3>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href=#>
+              <div class="project-block">
+                <img src="/img/buks-aio-transparent.png" class="grayed" />
+              </div>
+              <div class="project-title">
+                <h3>Architecture Website Concept</h3>
+              </div>
+            </a>
+          </li>
           <li></li>
         </ul>
         <div class="arrow right-arrow" id="right-arrow-0"><a href="javascript:void(0);" onclick="scrollToRight(0)">&gt;</a></div>
@@ -191,6 +209,9 @@
     var activeTagId = 0;
     function selectTag(tagId) {
       if (tagId != activeTagId) {
+        while (currentPage[activeTagId] > 0)
+          scrollToLeft(activeTagId);
+
         var tags = document.getElementsByClassName("tag-item");
         tags[tagId].classList.add("active");
         tags[activeTagId].classList.remove("active");
