@@ -57,12 +57,13 @@ $(document).ready(function() {
 
     imagesDoms.push(elem);
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
-    // console.log("elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
+    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
       imageOffsets[idx].height = elem.height();
       anchorImage(elem, idx, true);
+      console.log("adjust elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
     });
     elem.children("video").eq(0).on('loadedmetadata', function() {
       imageOffsets[idx].height = elem.height();
