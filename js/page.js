@@ -64,7 +64,7 @@ $(document).ready(function() {
       imageOffsets[idx].top = elem.position().top;
       imageOffsets[idx].height = elem.height();
       anchorImage(elem, idx, true);
-      console.log("adjust elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
+      console.log("adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
     });
     elem.children("video").eq(0).on('loadedmetadata', function() {
       imageOffsets[idx].top = elem.position().top;
