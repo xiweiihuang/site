@@ -61,8 +61,7 @@ $(document).ready(function() {
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
-      imageOffsets[idx].top = elem.position().top;
-      imageOffsets[idx].height = elem.height();
+      imageOffsets[idx] = { top: elem.position().top, height: elem.height() }
       anchorImage(elem, idx, true);
       console.log("adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
       console.log("@@" + elem.position().top)
