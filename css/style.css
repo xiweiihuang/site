@@ -319,7 +319,7 @@ footer div object {
   max-width: 50%;
 }
 
-.global-width-narrow .article img, .article video {
+.global-width-narrow .article img {
   width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
