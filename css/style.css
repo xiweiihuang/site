@@ -309,10 +309,14 @@ footer div object {
   margin-bottom: 14px;
 }
 
-.article img, .article video {
+.article img {
   margin-bottom: 20px;
   max-width: 100%;
   display: block;
+}
+
+.article video {
+  max-width: 50%;
 }
 
 .global-width-narrow .article img, .article video {
