@@ -391,6 +391,10 @@ footer div object {
   top: 2px;
 }
 
+.video-center {
+  text-align: center;
+}
+
 #active-image {
   position: fixed;
   width: 530px;
