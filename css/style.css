@@ -29,6 +29,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header h1 {
+  font-family: "Mermaid";
   font-size: 34px;
   font-weight: normal;
   color: #333;
@@ -36,6 +37,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header h3 {
+  font-family: "Mermaid";
   font-size: 16px;
   font-weight: normal;
   color: #666;
@@ -85,6 +87,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-nav ul li a {
+  font-family: "Mermaid";
   line-height: 150%;
   text-decoration: none;
   display: block;
@@ -217,6 +220,7 @@ footer div object {
 }
 
 .projects .project-title h3 {
+  font-family: "Mermaid";
   font-size: 16px;
   font-weight: normal;
   margin-top: 1.5em;
@@ -246,6 +250,7 @@ footer div object {
 }
 
 .tags ul li a {
+  font-family: "Mermaid";
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
@@ -262,10 +267,39 @@ footer div object {
 }
 
 /*
+ * Bio Page
+ */
+
+.article-bio {
+  margin-top: 100px;
+}
+
+.article-bio p {
+  font-family: "Mermaid";
+  color: #353535;
+}
+
+.article-bio p a {
+  color: #276dc1;
+  text-decoration: none;
+}
+
+/*
  *************************************************************
  * ARTICLE
  *************************************************************
  */
+
+.site-title:not(.no-back) h1 > a:first-child {
+  pointer-events: none;
+}
+
+.site-title:not(.no-back) h1 > a:first-child::before {
+  content: "< ";
+  pointer-events: all;
+  margin-left: -40px;
+  margin-right: 20px;
+}
 
 .site-title h1 .platform {
   color: grey;
@@ -330,6 +364,7 @@ footer div object {
 }
 
 .article h2 {
+  color: #353535;
   font-size: 24px;
   line-height: 1.2em;
   margin-top: 20px;
@@ -341,9 +376,22 @@ footer div object {
   margin-top: 70px;
 }
 
+.article > h2.small {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: -10px;
+  font-size: 20px;
+}
+
 .article h3 {
+  color: #353535;
   font-family: "Source Sans Pro Semibold";
   font-size: 18px;
+}
+
+.article > h3 {
+  margin-top: 40px;
+  margin-bottom: 16px;
 }
 
 .article h3 small {
