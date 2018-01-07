@@ -349,7 +349,7 @@ footer div object {
   display: block;
 }
 
-.article video {
+.article video.medium {
   max-width: 50%;
 }
 
