@@ -354,6 +354,9 @@ footer div object {
   max-width: 50%;
 }
 
+.article video.video-full {
+  max-width: 100%;
+}
 .article .video-spacing {
   margin-bottom: 40px;
 }
