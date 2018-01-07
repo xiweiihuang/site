@@ -340,7 +340,7 @@ footer div object {
 .article p {
   font-size: 18px;
   line-height: 1.7em;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .article img {
@@ -353,6 +353,10 @@ footer div object {
   max-width: 50%;
 }
 
+.article .iframe-remove-border {
+  margin-bottom: 40px;
+}
+
 .global-width-narrow .article img {
   width: 100%;
   margin: 0 auto;
@@ -361,6 +365,10 @@ footer div object {
 
 .article .img-small {
   max-width: 30%;
+}
+
+.article .img-medium {
+  max-width: 50%;
 }
 
 .article h2 {
@@ -437,6 +445,17 @@ footer div object {
 .video-remove-border video {
   position: relative;
   top: 2px;
+}
+
+.iframe-remove-border {
+  overflow: hidden;
+  width: 98%;
+}
+
+.iframe-remove-border iframe {
+  position: relative;
+  top: 2px;
+  left: -2px;
 }
 
 .video-center {
