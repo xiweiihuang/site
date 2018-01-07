@@ -350,6 +350,10 @@ footer div object {
   display: block;
 }
 
+.article video {
+  max-width: 80%;
+}
+
 .article video.video-medium {
   max-width: 50%;
 }
