@@ -332,6 +332,11 @@ footer div object {
 
 .site-title h1 .platform a {
   color: #e2e2e2;
+  transition: color 0.25s;
+}
+
+.site-title h1 .platform a:not(.active):hover {
+  color: #c3cedb;
 }
 
 .site-title h1 .platform a.active {
