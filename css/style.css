@@ -507,6 +507,15 @@ footer div object {
   top: 2px;
 }
 
+.video-remove-border-left {
+  overflow: hidden;
+}
+
+.video-remove-border-left video {
+  position: relative;
+  left: -2px;
+}
+
 .iframe-remove-border {
   overflow: hidden;
   width: 98%;
