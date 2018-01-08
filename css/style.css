@@ -463,6 +463,16 @@ footer div object {
   font-size: 18px;
 }
 
+.article ul.three-way-comparison {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article ul.three-way-comparison li {
+  /* display: inline-block; */
+  width: 30%;
+}
+
 /*
  * Image display
  */
@@ -510,6 +520,10 @@ footer div object {
 
 .video-center {
   text-align: center;
+}
+
+.image-center {
+  margin: 0 auto;
 }
 
 #active-image {

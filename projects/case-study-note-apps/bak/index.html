@@ -3,6 +3,11 @@
   <title>Case Study: Note Apps</title>
   <link rel='stylesheet' href="/css/style.css" type='text/css' />
   <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="/js/page.js" type="text/javascript"></script>
+  <script>
+    transitionHeight = 100;
+    activationMargin = -180;
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -88,93 +93,115 @@
   </div>
 
   <div class="content global-width">
-    <div class="article">
+    <div class="image-column">
+      <div class="image-display">
+        <img src="comparison1.png" />
+      </div>
+      <div class="image-display">
+        <img src="comparison2.png" />
+      </div>
+      <div class="image-display">
+        <img src="comparison3.png" />
+      </div>
+      <div class="image-display video-remove-border">
+        <img src="comparison4.png" />
+        <br>
+        <br>
+        <video autoplay loop width="100%">
+          <source src="notion-tags-text-attribute.mov">
+        </video>
+      </div>
+      <div class="image-display">
+        <img src="comparison5.png" />
+      </div>
+      <div class="image-display">
+        <!-- blank -->
+      </div>
+
+    </div>
+    <div class="article article-column">
       <h2>Show and Tell</h2>
       <p>So then a good note app needs to have: </p>
       <ol>
-        <li>
-          <h3>clear info hiehierarchy structure of where a finished page goes</h3>
-          <img class="image-center" src="comparison1.png" />
-          <br><br>
+        <li anchor=1>
+          clear info hiehierarchy structure of where a finished page goes.
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </li>
         <li>
-          <h3>a prominent way to open a new note page and delete one</h3>
-          <ul class="three-way-comparison">
+          a prominent way to open a new note page and delete one
+          <ul anchor=2>
             <li>
               Evernote and Apple Note have an add button on the top menu where a new page is automatic added to the current folder.Notion on the other way place add button on the side menu direct under folders/pages.
+              <br><br><br><br><br><br><br><br><br><br><br><br>
             </li>
             <li>
               I think its very much needed to give user option to add page direct inside the side bar, so we know instantly where a page is in the hierarch and its relationship to the parent and sibling folders. Also when later users wish to replace it, the drag is much simpler and faster.
+              <br><br><br><br><br><br><br><br><br>
             </li>
-            <li></li>
           </ul>
-          <img class="image-center" src="comparison2.png" />
-          <br><br>
         </li>
         <li>
-          <h3>Text font, size, color and alignment</h3>
-          <ul class="three-way-comparison">
+          Text font, size, color and alignment.
+          <ul anchor=3>
             <li>
               Evernote - top bar
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </li>
-            <li></li>
             <li>
               Notion - only 3 fonts and 2 sizes to choose from
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </li>
           </ul>
-          <img class="image-center" src="comparison3.png" />
-          <br><br>
         </li>
         <li>
-          <h3>Selecting between different tags</h3>
-          <ul class="three-way-comparison">
+          Selecting between different tags
+          <ul anchor=4>
             <li>
               Evernote
+              <br><br><br><br><br><br><br><br><br>
             </li>
             <li>
               Apple
+              <br><br><br><br><br><br><br><br><br><br><br><br>
             </li>
             <li>
               Notion - 2 ways: by typing a "/" to choose or select the block to choose
+              <br><br><br><br><br><br><br><br><br><br><br>
             </li>
           </ul> 
-          <div style="position: relative;">
-            <img class="image-center" src="comparison4.png" />
-            <video autoplay loop style="position: absolute; top: 48px; right: 0; width: 30%;">
-              <source src="notion-tags-text-attribute.mov">
-            </video>
-          </div>
-          <br><br>
         </li>
         <li>
-          <h3>Text-attribute</h3>
-          <ul class="three-way-comparison">
+          Text-attribute
+          <ul anchor=5>
             <li>
               Evernote does but in a old fashion way. User need to preselect text they wish to change and then choose from the option bar above. 
+              <br><br><br><br><br><br><br>
             </li>
             <li>
               Apple doesn't support any direct menu bar to change text attributes but only keyboard shortcut or right click on the text.              
+              <br><br><br><br><br><br><br><br><br><br><br><br><br>
             </li>
             <li>
               Notion allows user to change the text attribute right next to the cursor. Very consistent and non-brainer. 
+              <br><br><br><br><br><br><br><br><br><br><br>
             </li>
           </ul>
-          <img class="image-center" src="comparison5.png" />
-          <br><br>
         </li>
+        <li>Sync and version tracks for collaborative works. </li>
+        <li>Publish/Export/Download/Print</li>
       </ol>
+
+      <h2>Brainstorms - other features and solutions</h2>
+      <ul anchor=6>
+        <li>layout optimization</li>
+        <li>new tables feature</li>
+        <li>pause sync when collaborative work with other</li>
+      </ul>
     </div>
   </div>
 
   <div class="content global-width">
     <div class="article article-narrow">
-      <h2>Brainstorms - other features and solutions</h2>
-      <ul>
-        <li>layout optimization</li>
-        <li>new tables feature</li>
-        <li>pause sync when collaborative work with other</li>
-      </ul>
-
       <h2>Design Process</h2>
       <h3>Part 1: Layout Optimization</h3>
       <div class="video-center">
