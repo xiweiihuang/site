@@ -126,7 +126,7 @@ function switchActive() {
   }
 
   if (nextActiveIdx != currentActiveIdx) {
-      console.log("made active: " + nextActiveIdx + ", scroll: " + (lastScrollTop - globalSnapAdjustment) + ", image top: " + (imageOffsets[nextActiveIdx] + sectionOffset));
+      console.log("made active: " + nextActiveIdx + ", scroll: " + (lastScrollTop - globalSnapAdjustment) + ", image top: " + (imageOffsets[nextActiveIdx].top + sectionOffset));
     makeActive(nextActiveIdx);
   }
 }
