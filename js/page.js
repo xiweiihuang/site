@@ -87,12 +87,10 @@ function anchorImage(elem, idx, verticalCenter) {
     var top = anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment;
     elem.css('top', top);
     imageOffsets[idx].top = top;
-    console.log("Update elem " + idx + " position:" + imageOffsets[idx].top);
   } else {
     var top = anchor.offset().top - $(".image-column").eq(0).offset().top;
     elem.css('top', top);
     imageOffsets[idx].top = top;
-    console.log("Update elem " + idx + " position:" + imageOffsets[idx].top);
   }
   elem.css('opacity', 1);
 }
