@@ -208,7 +208,7 @@ footer div object {
   width: 260px;
   height: 210px;
   display: flex;
-  background: #f7f7f7;
+  background: white;
 
   position: relative;
   overflow: hidden;
