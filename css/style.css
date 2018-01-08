@@ -25,7 +25,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
  */
 
 .site-header {
-  margin-top: 125px;
+  margin-top: 90px;
 }
 
 .site-header h1 {
@@ -67,7 +67,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
  */
 
 .site-nav {
-  margin-top: 2px;
+  margin-top: -16px;
 }
 
 .site-nav ul {
@@ -234,7 +234,7 @@ footer div object {
  */
 
 .tags {
-  margin-top: 200px;
+  margin-top: 0;
   display: block;
 }
 
@@ -338,9 +338,19 @@ footer div object {
  * Article
  */
 
+.article-narrow {
+  width: 100%;
+}
+
+.article-narrow p, .article-narrow ul, .article-narrow ol, .article-narrow h2, .article-narrow h3 {
+  width: 800px;
+}
+
 .article p {
+  font-family: "Source Sans Pro Light";
   font-size: 18px;
   line-height: 1.7em;
+  margin: 0 auto;
   margin-bottom: 18px;
 }
 
@@ -383,6 +393,7 @@ footer div object {
   color: #353535;
   font-size: 24px;
   line-height: 1.2em;
+  margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 40px;
   text-align: center;
@@ -403,20 +414,24 @@ footer div object {
   color: #353535;
   font-family: "Source Sans Pro Semibold";
   font-size: 18px;
+  margin: 0 auto;
 }
 
 .article > h3 {
+  margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 16px;
 }
 
 .article h3 small {
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans Pro Light";
   font-weight: normal;
   font-size: 18px;
 }
 
 .article ol, .article ul {
+  font-family: "Source Sans Pro Light";
+  margin: 0 auto;
   line-height: 2em;
   font-size: 18px;
 }
