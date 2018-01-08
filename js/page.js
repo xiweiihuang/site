@@ -61,8 +61,8 @@ $(document).ready(function() {
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
-      imageOffsets[idx] = { top: elem.position().top, height: elem.height() };
-      imageOffsets[idx].top = 20 + idx * 200;//elem.position().top;
+      var top = elem.position().top;
+      imageOffsets[idx] = { top: top, height: elem.height() };
       console.log("adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
       anchorImage(elem, idx, true);
     });
@@ -88,6 +88,10 @@ function anchorImage(elem, idx, verticalCenter) {
     var imageHeight = elem.height();
     var verticalAlignmentAdjustment = (anchorTextHeight - imageHeight) / 2;
     elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment);
+
+    var top = anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment;
+    console.log("Anchoring " + idx + " at " + top);
+
   } else {
     elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
   }
