@@ -126,6 +126,7 @@ function switchActive() {
   }
 
   if (nextActiveIdx != currentActiveIdx) {
+    if (nextActiveIdx != -1)
       console.log("made active: " + nextActiveIdx + ", scroll: " + (lastScrollTop - globalSnapAdjustment) + ", image top: " + (imageOffsets[nextActiveIdx].top + sectionOffset));
     makeActive(nextActiveIdx);
   }
