@@ -83,11 +83,7 @@ function anchorImage(elem, idx, verticalCenter) {
     var anchorTextHeight = anchor.height();
     var imageHeight = elem.height();
     var verticalAlignmentAdjustment = (anchorTextHeight - imageHeight) / 2;
-    var top = anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment;
     elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment);
-    imageOffsets[idx].top = top;
-    console.log("Anchoring " + idx + " at " + top);
-    console.log("@adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
   } else {
     elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
   }
