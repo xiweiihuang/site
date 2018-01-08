@@ -84,11 +84,14 @@ function anchorImage(elem, idx, verticalCenter) {
     var imageHeight = elem.height();
     var verticalAlignmentAdjustment = (anchorTextHeight - imageHeight) / 2;
     var top = anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment;
+    elem.css('top', top);
     imageOffsets[idx].top = top;
     console.log("Update elem " + idx + " position:" + imageOffsets[idx].top);
-    elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment);
   } else {
-    elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
+    var top = anchor.offset().top - $(".image-column").eq(0).offset().top;
+    elem.css('top', top);
+    imageOffsets[idx].top = top;
+    console.log("Update elem " + idx + " position:" + imageOffsets[idx].top);
   }
   elem.css('opacity', 1);
 }
@@ -123,6 +126,7 @@ function switchActive() {
   }
 
   if (nextActiveIdx != currentActiveIdx) {
+      console.log("made active: " + nextActiveIdx + ", scroll: " + (lastScrollTop - globalSnapAdjustment) + ", image top: " + (imageOffsets[nextActiveIdx] + sectionOffset));
     makeActive(nextActiveIdx);
   }
 }
