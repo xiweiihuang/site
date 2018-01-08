@@ -18,7 +18,6 @@ var ticking = false;
 
 $(document).ready(function() {
   sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
-  console.log("Section offset: ", sectionOffset);
   updateImageMaxHeight();
 
   $(window).scroll(function() { 
@@ -49,33 +48,25 @@ $(document).ready(function() {
     recordWindowSpacePositions();
   });
 
-  $('.content').eq(0).on('load', function() {
-    sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
-    console.log("@Update section offset: ", sectionOffset);
-  });
-
   // set initial position and show image
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
     imagesDoms.push(elem);
     imageOffsets.push({ top: 0, height: elem.height() == 0 ? 200 : elem.height() });
     anchorImage(elem, idx, true);
-    console.log("elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
       sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
-      console.log("Update section offset: ", sectionOffset);
       anchorImage(elem, idx, true);
       imageOffsets[idx].height = elem.height();
-      // imageOffsets[idx].top = elem.position().top;
+      imageOffsets[idx].top = elem.position().top;
     });
     elem.children("video").eq(0).on('loadedmetadata', function() {
       sectionOffset = $('.image-column').eq(0).offset().top - $('.content').eq(0).offset().top;
-      console.log("Update section offset: ", sectionOffset);
       anchorImage(elem, idx, true);
       imageOffsets[idx].height = elem.height();
-      // imageOffsets[idx].top = elem.position().top;
+      imageOffsets[idx].top = elem.position().top;
     });
   });
 });
@@ -89,20 +80,14 @@ function anchorImage(elem, idx, verticalCenter) {
     return;
   }
 
+  var top = anchor.offset().top - $(".image-column").eq(0).offset().top;
   if (verticalCenter) {
     var anchorTextHeight = anchor.height();
     var imageHeight = elem.height();
     var verticalAlignmentAdjustment = (anchorTextHeight - imageHeight) / 2;
-    var top = anchor.offset().top - $(".image-column").eq(0).offset().top + verticalAlignmentAdjustment;
-    elem.css('top', top);
-    imageOffsets[idx].top = top;
-    console.log("Update elem " + idx + " position:" + imageOffsets[idx].top);
-  } else {
-    var top = anchor.offset().top - $(".image-column").eq(0).offset().top;
-    elem.css('top', top);
-    imageOffsets[idx].top = top;
-    console.log("Update elem " + idx + " position:" + imageOffsets[idx].top);
+    top += verticalAlignmentAdjustment;
   }
+  elem.css('top', top);
   elem.css('opacity', 1);
 }
 
@@ -135,11 +120,8 @@ function switchActive() {
     }
   }
 
-  if (nextActiveIdx != currentActiveIdx) {
-    if (nextActiveIdx != -1)
-      console.log("made active: " + nextActiveIdx + ", scroll: " + (lastScrollTop - globalSnapAdjustment) + ", image top: " + (imageOffsets[nextActiveIdx].top + sectionOffset));
+  if (nextActiveIdx != currentActiveIdx)
     makeActive(nextActiveIdx);
-  }
 }
 
 function makeActive(nextIdx) {
