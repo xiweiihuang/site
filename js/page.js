@@ -51,23 +51,21 @@ $(document).ready(function() {
   // set initial position and show image
   $('.image-column').children().each(function(idx) {
     var elem = $(this);
-
-    // anchor images to their corresponding DOMs
-    anchorImage(elem, idx, true);
-
     imagesDoms.push(elem);
+    anchorImage(elem, idx, true);
     imageOffsets.push({ top: elem.position().top, height: elem.height() == 0 ? 200 : elem.height() });
     console.log("elem " + idx + " position:" + elem.position().top + ", height: " + imageOffsets[idx].height);
 
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
-      imageOffsets[idx].height = elem.height();
       anchorImage(elem, idx, true);
+      imageOffsets[idx].height = elem.height();
+      imageOffsets[idx].top = elem.position().top;
     });
     elem.children("video").eq(0).on('loadedmetadata', function() {
+      anchorImage(elem, idx, true);
       imageOffsets[idx].top = elem.position().top;
       imageOffsets[idx].height = elem.height();
-      anchorImage(elem, idx, true);
     });
   });
 });
@@ -90,7 +88,6 @@ function anchorImage(elem, idx, verticalCenter) {
     imageOffsets[idx].top = top;
     console.log("Anchoring " + idx + " at " + top);
     console.log("@adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
-
   } else {
     elem.css('top', anchor.offset().top - $(".image-column").eq(0).offset().top);
   }
