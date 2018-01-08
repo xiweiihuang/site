@@ -62,12 +62,9 @@ $(document).ready(function() {
     // schedule to update height of elements that are not yet loaded at this time
     elem.children("img").eq(0).on('load', function() {
       anchorImage(elem, idx, true);
-      console.log("adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
       imageOffsets[idx] = { top: elem.position().top, height: elem.height() };
-      console.log("adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
       imageOffsets[idx].top = elem.position().top;
       console.log("adjust elem " + idx + " position:" + imageOffsets[idx].top + ", height: " + imageOffsets[idx].height);
-      console.log("@@" + elem.position().top);
     });
     elem.children("video").eq(0).on('loadedmetadata', function() {
       imageOffsets[idx].top = elem.position().top;
