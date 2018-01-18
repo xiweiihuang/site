@@ -31,7 +31,7 @@
 html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  font-family: "Source Sans Pro";
+  font-family: Roboto, "Source Sans Pro";
 }
 
 .global-width {
@@ -60,7 +60,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header h3 {
-  font-family: "Source Sans Pro Light";
+  font-family: Roboto, "Source Sans Pro Light";
   font-size: 16px;
   font-weight: normal;
   line-height: 1.5em;
@@ -374,14 +374,16 @@ footer div object {
 }
 
 .article p {
-  font-family: "Source Sans Pro Light";
-  font-size: 18px;
+  font-family: Roboto, "Source Sans Pro Light";
+  font-size: 16px;
   line-height: 1.7em;
   margin: 0 auto;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  color: #4c4c4c;
 }
 
 .article img {
+  margin: 0 auto;
   margin-bottom: 20px;
   max-width: 100%;
   display: block;
@@ -416,6 +418,11 @@ footer div object {
   max-width: 50%;
 }
 
+.article hr {
+  margin-top: 64px;
+  border-top: 0.5px solid #eee;
+}
+
 .article h2 {
   color: #353535;
   font-size: 24px;
@@ -439,7 +446,7 @@ footer div object {
 
 .article h3 {
   color: #353535;
-  font-family: "Source Sans Pro Semibold";
+  font-family: Roboto, "Source Sans Pro Semibold";
   font-size: 18px;
   margin: 0 auto;
 }
@@ -451,16 +458,17 @@ footer div object {
 }
 
 .article h3 small {
-  font-family: "Source Sans Pro Light";
+  font-family: Roboto, "Source Sans Pro Light";
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .article ol, .article ul {
-  font-family: "Source Sans Pro Light";
+  font-family: Roboto, "Source Sans Pro Light";
   margin: 0 auto;
   line-height: 2em;
-  font-size: 18px;
+  font-size: 16px;
+  color: #4c4c4c;
 }
 
 .article ul.three-way-comparison {
@@ -471,6 +479,11 @@ footer div object {
 .article ul.three-way-comparison li {
   /* display: inline-block; */
   width: 30%;
+}
+
+.article a {
+  color: #276dc1;
+  text-decoration: none;
 }
 
 /*
