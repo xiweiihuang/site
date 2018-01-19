@@ -28,6 +28,13 @@
   src: url("/font/Mermaid.ttf") format("truetype");
 }
 
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/font/Roboto-Regular.ttf");
+  src: url("/font/Roboto-Regular.ttf") format("truetype");
+}
+
 html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
