@@ -9,7 +9,7 @@
     <div class="header-wrapper global-width">
       <div class="site-title">
         <h1><a href='javascript:history.back()'>Buks</a><span class="platform"><a href="javascript:void(0)" onclick="selectPlatform(0)" class="platform-select active">Mobile</a> | <a href="javascript:void(0)" onclick="selectPlatform(1)" class="platform-select">Desktop</a></span></h1>
-        <h3>Find your next must-read in recommendation tailored just for you.</h3>
+        <h3>Find your next must-read from reading lists tailored just for you.</h3>
       </div>
 
       <div class="site-nav">
@@ -23,34 +23,84 @@
 
   <div class="content global-width-narrow">
     <div class="article">
-      <h2>Background</h2>
+      <div id="platform0">
+      <h2>Background/Design Problem</h2>
+      <p>
+        I've been using <a href="http://douban.com">Douban</a> to record books I've read and find new books to read for the past 10 years. Douban has a large number of users and great database for books from all over the world. But I still find its hard to find books I really like depending on its recommending system.
+      </p>
+
+      <p>
+        As an average reader, I only read one or two books every month, and it pushed my bar higher when it comes to choose what to read next during my short commute ride. I have this need of having a system that only recommends books i like, instead of taking a wild guess based on "similar" books that are 1)from same genre 2) by same author 3)about same topic. 
+      </p>
+
+      <h2>Goal</h2>
+      <p>
+        I decide to design a mobile book sharing/recommend platform that delivers accurately recommending result for users through a different system and search function.
+      </p>
+
+      <h2>Timeline</h2>
+      <p>
+        A total of 10 hours have gone into this project. A couple of hours spent record my journey using Douban and summarized the places where I liked and where I hope to improve in my own design. The rest of the time was used for ideation, prototyping, moving through iterations and designing a  high fidelity visual design for a distilled solution. 
+      </p>
+
+      <h2>Insights</h2>
       <ul>
-        <li><h3>Design Problem - <small>I've always want to be able to record the books that i read and continuously find more interesting books to read through a trusting system.</small></h3></li>
-        <li><h3>Goal - <small>I wanted to mostly focus on two things in this design: to record easily and to recommended more books based on a smart reading list system.</small></h3></li>
-        <li><h3>Insights - <small>I find the most efficient recommend system for me is to give reading lists that contain the books that i've read and rated high. But not "similar" books that share the same topic / subject, or from the same author.</small></h3></li>
-        <li>
-          <h3>Features and solutions</h3>
-          <ul>
-            <li>recommend book - based on booklists.</li>
-            <li>better, faster, simpler mark system.</li>
-          </ul>
-        </li>
+        <li>Based on my own book searching process using Douban, I find it's more likely for me to discover interesting books from the reading lists that already contain the books that I rated highly. </li>
+        <li>But finding curated book lists isn't always a natural action for me as i only click into it when i see it, and can't locate the feature without having to look for it. </li>
+        <li>When I search for books I may be interested, the search results are always limited in a few books because I can only think a few keywords.</li>
+        <li>Existing review system is limited in a two formats- xx out 5 stars, xx out of 10 points. there is not enough first hand text info such as book reviews from users.</li>
       </ul>
 
-      <div id="platform0">
-        <h2>Wireframes</h2>
-        <img src="buks-mobile-wireframe.png" />
+      <h2>Define - Prioritizing pain points</h2>
+      <p>
+        I organized the insights to narrow down on the major pain points: 
+      </p>
+      <ul>
+        <li>Current book recommending system only considers a few things like genre, author, topic.</li>
+        <li>Ambiguous layout of the features reduce the functionality of the website/app. </li>
+        <li>Search function can be impaired since users may only put genre/topic word as the keyword and this limits the results greatly.  </li>
+        <li>There is not positive reinforcement in behavior forming of curating book lists.</li>
+      </ul>
 
-        <h2>High-fidelity Prototype</h2>
-        <img src="buks-mobile-aio.png" />
+      <h2>Assumptions</h2>
+      <p>
+        It's impossible to design solutions without making assumptions, With limited time in hand I had to make following assumptions:
+      </p>
+      <ul>
+        <li>A book lists curated by human would be a better system to include books of same genre/topic/ author/ writing style/time.</li>
+        <li>Users would want to have keywords recommendation while searching for new books to read.</li>
+        <li>In addition to rating systems like stars and points, users want to read book reviews from other users as a great measurement.</li>
+        <li>A simpler review given system, i.e. a system that already provided users with function to add book into booklist and clear structure to rate. </li>
+      </ul>
 
-        <h2>Interaction</h2>
-        <div class="video-remove-border video-center">
-          <video class="video-medium" autoplay loop>
-            <source src="buks.mov">
-          </video>
-        </div>
+      <h2>Prototype and Test</h2>
+      <p>Monochromatic wireframes</p>
+      <p>
+        Move to design the best flow of information - usually resort to monochromatic wireframes for avoiding personal bias for colors and styles. My favorite tool for designing interfaces is Sketch.
+      </p>
+
+      <img src="buks-mobile-wireframe.png" />
+
+      <h2>High fidelity prototyping</h2>
+      <img src="buks-mobile-aio.png" />
+      <div class="video-remove-border video-center">
+        <video class="video-medium" autoplay loop>
+          <source src="buks.mov">
+        </video>
       </div>
+      <p>
+        Although there were only 10 hours given into this project, I am very satisfied with the overall resultS. Along the way, I learned more about opportunities and challenges for UX in daily life.
+      </p>
+
+      <p>
+        Given the fact it is more of a personal project, it limited the scope of user research and design. But for next version of the app i would take the following items into consideration: 
+      </p>
+      <ul>
+        <li>Design the steps to add book to buklist in a no-brainer way. </li>
+        <li>I need to consider that sometimes when users curate buklists, they are giving personal(biased) options about what books are alike to each other in terms of what have in their mind. So a large number of data and additional user validations are definitely in need. </li>
+        <li>Also, given that this is a product which is providing solutions for users to opt-in for regular use. I would love to experiment with applying behavioral science models to see if there are any opportunities for planting in any habit-forming features.</li>
+      </ul>
+      </div> <!-- end platform0 -->
 
       <div id="platform1" style="display: none;">
         <h2>Wireframes</h2>
