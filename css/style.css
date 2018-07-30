@@ -101,6 +101,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 
 .site-nav ul li a {
   font-family: "Optima Bold";
+  font-weight: bold;
   font-size: 26px;
   line-height: 100%;
   text-decoration: none;
@@ -109,7 +110,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-nav ul li.active-tab a {
-  color: #1143f3;
+  color: #0053a7;
 }
 
 .sub-menu {
@@ -132,7 +133,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .sub-menu ul li.active-tab a {
-  color: #1143f3;
+  color: #0053a7;
 }
 
 .site-name h1 {
@@ -315,11 +316,11 @@ footer div object {
 }
 
 .tags ul li.active a {
-  color: #1143f3;
+  color: #0053a7;
 }
 
 .tags ul li a:hover {
-  color: #1143f3;
+  color: #0053a7;
 }
 
 /*
@@ -363,7 +364,7 @@ footer div object {
 }
 
 .subheader h1 .platform a.active {
-  color: #1143f3;
+  color: #0053a7;
 }
 
 /*
@@ -508,7 +509,7 @@ footer div object {
 }
 
 .article a {
-  color: #1143f3;
+  color: #0053a7;
   text-decoration: none;
 }
 
