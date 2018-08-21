@@ -110,7 +110,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .site-nav ul li.active-tab a {
-  color: #0053a7;
+  color: #0a6cff;
 }
 
 .sub-menu {
@@ -133,7 +133,7 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 }
 
 .sub-menu ul li.active-tab a {
-  color: #0053a7;
+  color: #0a6cff;
 }
 
 .site-name h1 {
@@ -316,11 +316,11 @@ footer div object {
 }
 
 .tags ul li.active a {
-  color: #0053a7;
+  color: #0a6cff;
 }
 
 .tags ul li a:hover {
-  color: #0053a7;
+  color: #0a6cff;
 }
 
 /*
@@ -364,7 +364,7 @@ footer div object {
 }
 
 .subheader h1 .platform a.active {
-  color: #0053a7;
+  color: #0a6cff;
 }
 
 /*
@@ -509,7 +509,7 @@ footer div object {
 }
 
 .article a {
-  color: #0053a7;
+  color: #0a6cff;
   text-decoration: none;
 }
 
