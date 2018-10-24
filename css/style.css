@@ -396,6 +396,21 @@ footer div object {
   display: flex;
 }
 
+@media (max-width: 1040px) {
+  .bio-wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+/* crude, fixme */
+@media (max-width: 840px) {
+  .bio-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 800px) {
   .bio-wrapper {
     display: block;
