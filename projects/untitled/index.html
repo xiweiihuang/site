@@ -1,8 +1,21 @@
 <html>
 <head>
   <title>Untitled</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link rel='stylesheet' href="/css/style.css" type='text/css' />
   <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <style>
+  iframe.bottom {
+    width: 670;
+    height: 503;
+  }
+  @media (max-width: 600px) {
+    iframe.bottom {
+      width: 335;
+      height: 251;
+    }
+  }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -93,7 +106,7 @@
       </p>
       <br /><br />
       
-      <iframe src="https://player.vimeo.com/video/214080729" width="670" height="503" frameborder="0" webkitallowfullscreen mozallowfullscreen
+      <iframe class="bottom" src="https://player.vimeo.com/video/214080729" frameborder="0" webkitallowfullscreen mozallowfullscreen
         allowfullscreen></iframe>
     </div>
   </div>

@@ -18,8 +18,14 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 
 .global-width {
   max-width: 1000px;
-  min-width: 800px;
+  min-width: 320px;
   margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .global-width {
+    min-width: 320px;
+  }
 }
 
 .global-width-narrow {
@@ -33,6 +39,8 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
 
 .site-header {
   margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .site-header h1 {
@@ -54,6 +62,12 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
   font-size: 18px;
   font-weight: normal;
   line-height: 1.5em;
+}
+
+.site-name h1 {
+  font-family: "Optima Bold";
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .site-header h1 a {
@@ -109,6 +123,12 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
   color: #353535;
 }
 
+@media (max-width: 600px) {
+  .site-nav ul li a {
+    font-size: 18px;
+  }
+}
+
 .site-nav ul li.active-tab a {
   color: #0a6cff;
 }
@@ -136,11 +156,19 @@ html, body, div, p, img, h1, h2, h3, h4, h5, h6 {
   color: #0a6cff;
 }
 
-.site-name h1 {
-  font-family: "Optima Bold";
-  font-size: 36px;
-  font-weight: bold;
-  margin-top: 18px;
+@media (max-width: 600px) {
+  .site-header h1 {
+    font-size: 32px;
+  }
+  .site-header h2 {
+    font-size: 18px;
+  }
+  .site-name h1 {
+    font-size: 24px;
+  }
+  .sub-menu ul li a {
+    font-size: 16px;
+  }
 }
 
 footer {
@@ -167,7 +195,13 @@ footer div object {
 
 .content {
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    margin-top: 20px;
+  }
 }
 
 .projects-wrapper {
@@ -185,6 +219,12 @@ footer div object {
   margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .project-row {
+    display: block;
+  }
 }
 
 .projects ul.carousel {
@@ -216,6 +256,13 @@ footer div object {
 
   margin-left: 12px;
   margin-right: 12px;
+}
+
+@media (max-width: 600px) {
+  .projects .project-block {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .projects .project-block img {
@@ -259,6 +306,12 @@ footer div object {
 
 .projects .project-mid {
   width: 50%;
+}
+
+@media (max-width: 600px) {
+  .projects .project-mid {
+    width: 100%;
+  }
 }
 
 .projects h2 {
@@ -332,10 +385,27 @@ footer div object {
 }
 
 .article-bio-image {
+  text-align: center;
 }
 
 .article-bio-image img {
   max-width: 275px;
+}
+
+.bio-wrapper {
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .bio-wrapper {
+    display: block;
+  }
+  .article-bio {
+    margin-right: 0;
+  }
+  .article-bio-image {
+    margin-top: 40px;
+  }
 }
 
 /*
@@ -348,10 +418,23 @@ footer div object {
   margin-top: 80px;
 }
 
+.subheader p {
+  font-size: 16px;
+}
+
 .subheader h1 .platform {
   color: #e2e2e2;
   font-size: 20px;
   margin-left: 20px;
+}
+
+@media (max-width: 600px) {
+  .subheader h1 .platform {
+    font-size: 16px;
+  }
+  .subheader p {
+    font-size: 14px;
+  }
 }
 
 .subheader h1 .platform a {
@@ -392,12 +475,19 @@ footer div object {
 .article {
 }
 
+@media (max-width: 840px) {
+  .article {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 .article-narrow {
   width: 100%;
 }
 
 .article-narrow p, .article-narrow ul, .article-narrow ol, .article-narrow h2, .article-narrow h3 {
-  width: 800px;
+  max-width: 800px;
 }
 
 .article p {
@@ -496,6 +586,22 @@ footer div object {
   line-height: 2em;
   font-size: 16px;
   color: #4c4c4c;
+}
+
+@media (max-width: 600px) {
+  .article p {
+    font-size: 14px;
+  }
+  .article h3 {
+    font-size: 14px;
+  }
+  .article h3 small {
+    font-size: 14px;
+  }
+  .article ol, .article ul {
+    font-size: 14px;
+    line-height: 1.7em;
+  }
 }
 
 .article ul.three-way-comparison {
